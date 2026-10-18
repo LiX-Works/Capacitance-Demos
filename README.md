@@ -2,6 +2,8 @@
 
 电容、电场与触觉感知的交互式科学演示合集。两个辅助作品放在同一个入口，各自保留源码、数据与模型说明。
 
+**项目背景：**两个演示分别来自本科传感器课程的两次课堂汇报。课程只要求讲解原理，常规做法是幻灯片；作者选择做成可交互的网页演示。先完成了 ProxiTouch，下一次汇报又进一步尝试了带数值建模的互电容实验室。
+
 **[在线合集](https://lix-works.github.io/capacitance-demos/)** · [ProxiTouch](https://lix-works.github.io/capacitance-demos/proxitouch/) · [互电容建模实验室](https://lix-works.github.io/capacitance-demos/mutual-capacitance/)
 
 | 演示 | 内容 | 入口 |
