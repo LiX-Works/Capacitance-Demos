@@ -41,6 +41,6 @@ GitHub 的 Ubuntu 线上工作流已在 Node 22／Python 3.12 环境通过完整
 
 ## 已发布的线上版本
 
-仓库为 [LiX-Works/capacitance-demos](https://github.com/LiX-Works/capacitance-demos)，合集入口为 [电容 Demo](https://lix-works.github.io/capacitance-demos/)。[完整发布工作流](https://github.com/LiX-Works/capacitance-demos/actions/runs/37042722296)已成功。
+仓库为 [LiX-Works/capacitance-demos](https://github.com/LiX-Works/capacitance-demos)，合集入口为 [电容 Demo](https://lix-works.github.io/Capacitance-Demos/)。[完整发布工作流](https://github.com/LiX-Works/capacitance-demos/actions/runs/37042722296)已成功。
 
 发布应用提交为 `5768eff46cc33e3fee4b4cc1d6d50f3ca9762304`。实际浏览器确认了首页、两个演示入口、翻页与场显示；7 个公开地址返回 HTTP 200，两套运行时 HTML 与两个 2×2 总览 PNG 的字节哈希匹配本地构建。首页等文本允许 Git 标准换行归一化，详见 [publication.json](qa/publication.json)。后续仅更新验证文档和源码清单，不改变部署应用。
