@@ -13,6 +13,11 @@
       "detail": null
     },
     {
+      "name": "Entrance is English",
+      "passed": true,
+      "detail": null
+    },
+    {
       "name": "Entrance images loaded",
       "passed": true,
       "detail": null
@@ -47,6 +52,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S00 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S00 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -59,6 +69,11 @@
       "name": "proxitouch S00 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S00 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S00 phase 1: renders without GL, math or runtime errors",
@@ -75,376 +90,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S00: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S00 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S00: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S01 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S01 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S01 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S01 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S01 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S01 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S01: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S01: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S02 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S02 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S02 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S02 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S02 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S02 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S02: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S02: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S03 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S03 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S03 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S03 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S03 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S03 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S03: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S03: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S04 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S04 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S04 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S04 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S04 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S04 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S04: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S04: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S05 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S05 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S05 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S05 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S05 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S05 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S05: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S05: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S06 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S06 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S06 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S06 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S06 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S06 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S06: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S06: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S07 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S07 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S07 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S07 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S07 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S07 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S07: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S07: explanation text preserved",
+      "name": "proxitouch S00: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -463,6 +114,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S08 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S08 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -475,6 +131,11 @@
       "name": "proxitouch S08 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S08 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S08 phase 1: renders without GL, math or runtime errors",
@@ -491,12 +152,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S08: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S08 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S08: explanation text preserved",
+      "name": "proxitouch S08: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -515,6 +176,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S09 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S09 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -527,6 +193,11 @@
       "name": "proxitouch S09 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S09 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S09 phase 1: renders without GL, math or runtime errors",
@@ -543,64 +214,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S09: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S09 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S09: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S10 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S10 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S10 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S10 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S10 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S10 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S10: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S10: explanation text preserved",
+      "name": "proxitouch S09: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -619,6 +238,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S11 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S11 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -631,6 +255,11 @@
       "name": "proxitouch S11 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S11 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S11 phase 1: renders without GL, math or runtime errors",
@@ -647,12 +276,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S11: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S11 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S11: explanation text preserved",
+      "name": "proxitouch S11: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -671,6 +300,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S12 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S12 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -683,6 +317,11 @@
       "name": "proxitouch S12 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S12 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S12 phase 1: renders without GL, math or runtime errors",
@@ -699,12 +338,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S12: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S12 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S12: explanation text preserved",
+      "name": "proxitouch S12: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -723,6 +362,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S13 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S13 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -735,6 +379,11 @@
       "name": "proxitouch S13 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S13 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S13 phase 1: renders without GL, math or runtime errors",
@@ -751,12 +400,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S13: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S13 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S13: explanation text preserved",
+      "name": "proxitouch S13: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -775,6 +424,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S14 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S14 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -787,6 +441,11 @@
       "name": "proxitouch S14 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S14 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S14 phase 1: renders without GL, math or runtime errors",
@@ -803,220 +462,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S14: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S14 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S14: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S15 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S15 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S15 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S15 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S15 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S15 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S15: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S15: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S16 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S16 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S16 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S16 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S16 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S16 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S16: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S16: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S17 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S17 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S17 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S17 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S17 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S17 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S17: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S17: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S18 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S18 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S18 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S18 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S18 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "proxitouch S18 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S18: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "proxitouch S18: explanation text preserved",
+      "name": "proxitouch S14: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1035,6 +486,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S19 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S19 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1047,6 +503,11 @@
       "name": "proxitouch S19 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S19 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S19 phase 1: renders without GL, math or runtime errors",
@@ -1063,12 +524,74 @@
       "detail": null
     },
     {
-      "name": "proxitouch S19: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S19 phase 1: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "proxitouch S19: visible text is English",
       "passed": true,
       "detail": null
     },
     {
-      "name": "proxitouch S19: explanation text preserved",
+      "name": "proxitouch S18 phase 0: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "proxitouch S18 phase 0: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proxitouch S18 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "proxitouch S18 phase 0.5: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "proxitouch S18 phase 0.5: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proxitouch S18 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "proxitouch S18 phase 1: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "proxitouch S18 phase 1: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "proxitouch S18 phase 1: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "proxitouch S18: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1087,6 +610,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S20 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S20 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1099,6 +627,11 @@
       "name": "proxitouch S20 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S20 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S20 phase 1: renders without GL, math or runtime errors",
@@ -1115,12 +648,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S20: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S20 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S20: explanation text preserved",
+      "name": "proxitouch S20: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1139,6 +672,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S21 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S21 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1151,6 +689,11 @@
       "name": "proxitouch S21 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S21 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S21 phase 1: renders without GL, math or runtime errors",
@@ -1167,12 +710,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S21: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S21 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S21: explanation text preserved",
+      "name": "proxitouch S21: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1191,6 +734,11 @@
       "detail": null
     },
     {
+      "name": "proxitouch S22 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "proxitouch S22 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1203,6 +751,11 @@
       "name": "proxitouch S22 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "proxitouch S22 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "proxitouch S22 phase 1: renders without GL, math or runtime errors",
@@ -1219,12 +772,12 @@
       "detail": null
     },
     {
-      "name": "proxitouch S22: scientific 3D pixels preserve historical state",
+      "name": "proxitouch S22 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "proxitouch S22: explanation text preserved",
+      "name": "proxitouch S22: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1236,10 +789,20 @@
     {
       "name": "Proxi live loop navigation hint is accurate",
       "passed": true,
-      "detail": "→ 中断当前动画并翻页"
+      "detail": "→ skips the animation and turns the page"
     },
     {
       "name": "Proxi button immediately interrupts loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Proxi cover stage track follows the loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Proxi S19 highlights the pressure paragraph",
       "passed": true,
       "detail": null
     },
@@ -1284,6 +847,68 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 00 phase 0: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "mutual-capacitance 00 phase 0: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mutual-capacitance 00 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mutual-capacitance 00 phase 0.5: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "mutual-capacitance 00 phase 0.5: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mutual-capacitance 00 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mutual-capacitance 00 phase 1: renders without GL, math or runtime errors",
+      "passed": true,
+      "detail": {
+        "glError": 0,
+        "mathErrors": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "mutual-capacitance 00 phase 1: finite camera and model",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mutual-capacitance 00 phase 1: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mutual-capacitance 00: visible text is English",
+      "passed": true,
+      "detail": null
+    },
+    {
       "name": "mutual-capacitance 01 phase 0: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1296,6 +921,11 @@
       "name": "mutual-capacitance 01 phase 0: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 01 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 01 phase 0.5: renders without GL, math or runtime errors",
@@ -1312,6 +942,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 01 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 01 phase 1: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1326,12 +961,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 01: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 01 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 01: explanation text preserved",
+      "name": "mutual-capacitance 01: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1350,6 +985,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 02 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 02 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1362,6 +1002,11 @@
       "name": "mutual-capacitance 02 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 02 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 02 phase 1: renders without GL, math or runtime errors",
@@ -1378,12 +1023,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 02: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 02 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 02: explanation text preserved",
+      "name": "mutual-capacitance 02: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1402,6 +1047,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 03 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 03 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1414,6 +1064,11 @@
       "name": "mutual-capacitance 03 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 03 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 03 phase 1: renders without GL, math or runtime errors",
@@ -1430,12 +1085,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 03: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 03 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 03: explanation text preserved",
+      "name": "mutual-capacitance 03: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1454,6 +1109,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 04 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 04 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1466,6 +1126,11 @@
       "name": "mutual-capacitance 04 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 04 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 04 phase 1: renders without GL, math or runtime errors",
@@ -1482,12 +1147,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 04: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 04 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 04: explanation text preserved",
+      "name": "mutual-capacitance 04: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1506,6 +1171,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 05 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 05 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1518,6 +1188,11 @@
       "name": "mutual-capacitance 05 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 05 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 05 phase 1: renders without GL, math or runtime errors",
@@ -1534,12 +1209,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 05: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 05 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 05: explanation text preserved",
+      "name": "mutual-capacitance 05: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1558,6 +1233,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 06 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 06 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1570,6 +1250,11 @@
       "name": "mutual-capacitance 06 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 06 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 06 phase 1: renders without GL, math or runtime errors",
@@ -1586,12 +1271,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 06: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 06 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 06: explanation text preserved",
+      "name": "mutual-capacitance 06: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1610,6 +1295,11 @@
       "detail": null
     },
     {
+      "name": "mutual-capacitance 07 phase 0: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "mutual-capacitance 07 phase 0.5: renders without GL, math or runtime errors",
       "passed": true,
       "detail": {
@@ -1622,6 +1312,11 @@
       "name": "mutual-capacitance 07 phase 0.5: finite camera and model",
       "passed": true,
       "detail": null
+    },
+    {
+      "name": "mutual-capacitance 07 phase 0.5: no panel leaves the viewport",
+      "passed": true,
+      "detail": []
     },
     {
       "name": "mutual-capacitance 07 phase 1: renders without GL, math or runtime errors",
@@ -1638,272 +1333,12 @@
       "detail": null
     },
     {
-      "name": "mutual-capacitance 07: scientific 3D pixels preserve historical state",
+      "name": "mutual-capacitance 07 phase 1: no panel leaves the viewport",
       "passed": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "mutual-capacitance 07: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 08 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 08 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 08 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 08 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 08 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 08 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 08: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 08: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 09 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 09 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 09 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 09 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 09 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 09 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 09: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 09: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 10 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 10 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 10 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 10 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 10 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 10 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 10: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 10: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 11 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 11 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 11 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 11 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 11 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 11 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 11: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 11: explanation text preserved",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 12 phase 0: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 12 phase 0: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 12 phase 0.5: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 12 phase 0.5: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 12 phase 1: renders without GL, math or runtime errors",
-      "passed": true,
-      "detail": {
-        "glError": 0,
-        "mathErrors": 0,
-        "errors": []
-      }
-    },
-    {
-      "name": "mutual-capacitance 12 phase 1: finite camera and model",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 12: scientific 3D pixels preserve historical state",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "mutual-capacitance 12: explanation text preserved",
+      "name": "mutual-capacitance 07: visible text is English",
       "passed": true,
       "detail": null
     },
@@ -1913,17 +1348,22 @@
       "detail": null
     },
     {
-      "name": "Lab real completed loop advances field mode",
+      "name": "Lab field page loop advances the field view",
       "passed": true,
       "detail": null
     },
     {
-      "name": "Lab manual field mode selects strength",
+      "name": "Lab field switch selects strength",
       "passed": true,
       "detail": null
     },
     {
-      "name": "Lab Next interrupts field loop",
+      "name": "Lab Next interrupts the loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lab field switch only appears where it is used",
       "passed": true,
       "detail": null
     },
@@ -1933,12 +1373,22 @@
       "detail": null
     },
     {
-      "name": "Lab displayed dielectric trace matches chosen material",
+      "name": "Lab angle slider sets the angle and stops the loop",
       "passed": true,
       "detail": null
     },
     {
-      "name": "Lab dielectric marker remains in chart",
+      "name": "Lab chart marker stays in the chart",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lab model turns by direct drag and offers Reset view",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Lab Reset view hides again",
       "passed": true,
       "detail": null
     },
@@ -1972,15 +1422,15 @@
   "externalRequests": [],
   "projects": {
     "proxitouch": {
-      "runtimeSha256": "777d29996d08f9a9fc108cf2d27aae04da5b9d73da1ade069461d80e53b3b68c",
-      "scenes": 23,
+      "runtimeSha256": "1917cd39f751db9b2c4b71f48f02f30aaba085e604c3b1e4ab2b6eb70618e1ca",
+      "scenes": 12,
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
     },
     "mutual-capacitance": {
-      "runtimeSha256": "c9e67fa0080b752f0613c608b2d00e2048db8dd798ba00d11b8e981166b8cd28",
-      "scenes": 12,
+      "runtimeSha256": "d08c00b69ef848db0ab1ec3b311257f8ff7354cd4e3a1619a78737dfd2d0f755",
+      "scenes": 8,
       "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
     }
   },
-  "browserVersion": "143.0.7499.4"
+  "browserVersion": "155.0.8059.86"
 }

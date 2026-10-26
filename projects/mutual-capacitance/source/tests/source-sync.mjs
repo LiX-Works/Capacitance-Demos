@@ -20,7 +20,8 @@ check('Single compiled runtime script',built.scripts.length===1);
 check('UTF-8 declaration remains within the first 1024 bytes',/charset\s*=\s*["']?utf-8/i.test(builtHtml.slice(0,1024)));
 for(const [key,expected]of Object.entries(contract.modules)){
  const ref=reference.modules[key],current=built.modules[key];
- check('Approved module: '+key,ref!==undefined&&current!==undefined&&sha(normalize(ref))===expected.referenceNormalizedSha256&&sha(normalize(current))===expected.approvedNormalizedSha256,{reason:expected.reason});
+ // Modules added after the historical upload carry a null reference hash.
+ check('Approved module: '+key,current!==undefined&&sha(normalize(current))===expected.approvedNormalizedSha256&&(expected.referenceNormalizedSha256===null?ref===undefined:ref!==undefined&&sha(normalize(ref))===expected.referenceNormalizedSha256),{reason:expected.reason});
 }
 check('Styles match approved release',sha(built.css)===contract.cssSha256);
 for(const [file,hash]of Object.entries(contract.scientificFiles))check('Frozen scientific input: '+file,sha(fs.readFileSync(path.join(root,file)))===hash);

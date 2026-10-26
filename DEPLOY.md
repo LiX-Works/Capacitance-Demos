@@ -1,23 +1,23 @@
-# 将合集发布到 GitHub Pages
+# Publishing the collection with GitHub Pages
 
-本仓库维护一个首页和两个演示，无需创建两个 GitHub 仓库。保留的旧部署提示位于项目的 `archive/prior-github-handoff/`，不用于当前部署。
+This repository holds one collection page and two demos; it does not need two GitHub repositories. Older deployment prompts are kept in each project's `archive/prior-github-handoff/` and are not used for current deployments.
 
-## 上传范围
+## What to upload
 
-将本目录的内容放到一个仓库根目录。上传源码、`web/`、`scripts/`、`projects/`、文档、许可与根 `.github/`。不要直接上传交付 ZIP 作为网站，也不要上传 `node_modules`、Python 环境或浏览器缓存。
+Put this folder's contents at the root of one repository: source, `web/`, `scripts/`, `projects/`, documents, licences and the root `.github/`. Do not upload a delivery ZIP as the website, and do not upload `node_modules`, Python environments or browser caches.
 
-根 `.gitignore` 排除了可重建的 `site/`、项目 `dist/` 和项目打包入口。它们可以留在本地离线包中，GitHub Actions 会从源码生成。保留项目科学数据、reference 和历史档案。
+The root `.gitignore` excludes the rebuildable `site/`, each project's `dist/` and the packaged project entries. They may stay in a local offline package; GitHub Actions regenerates them from source. Keep the scientific data, `reference/` and the historical archives.
 
-## 开启 Pages
+## Turning on Pages
 
-1. 在目标仓库的 Settings → Pages 中，将 Source 设为 **GitHub Actions**。
-2. 使用 `main` 或 `master` 分支；推送后根 `pages.yml` 会构建、检查、运行浏览器 QA，再发布整个合集。
-3. Pull request 只验证，不发布。也可以在 Actions 页面手动运行工作流。
-4. 发布后检查入口、两个演示和预览图库。所有链接均使用相对路径；本地 QA 覆盖 `/capacitance-demos/` 子路径。
+1. In the repository's Settings → Pages, set Source to **GitHub Actions**.
+2. Use the `main` or `master` branch. A push runs the root `pages.yml`: build, checks, browser QA, then publication of the whole collection.
+3. Pull requests are verified but not published. The workflow can also be started by hand from the Actions page.
+4. After publishing, check the entrance, both demos and the preview galleries. All links are relative; local QA covers the `/capacitance-demos/` sub-path.
 
-仓库名称可以自行选择；无需改页面中的地址。自定义域名不是本项目的运行依赖。
+The repository name is free to choose; no address in the pages needs changing. A custom domain is not required. Pages paths are case-sensitive, so a renamed repository changes the site address.
 
-## 本地复查
+## Local review
 
 ```sh
 npm run build
@@ -26,13 +26,11 @@ npm test
 npm run preview
 ```
 
-如需模拟仓库子路径，在运行预览前设置 `PREVIEW_BASE=capacitance-demos`。PowerShell 示例：
+To simulate a repository sub-path, set `PREVIEW_BASE=capacitance-demos` before the preview. PowerShell example:
 
 ```powershell
 $env:PREVIEW_BASE = 'capacitance-demos'
 npm run preview
 ```
 
-可选 Python 环境用于浏览器测试，安装步骤见 README。GitHub 工作流会为其安装独立依赖。
-
-官方流程参考：[GitHub Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。本地成功不代表已在某个账号上发布；线上完成以实际站点为准。
+The optional Python environment for browser tests is described in the README; the GitHub workflow installs its own. Official reference: [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). A local pass does not mean anything is published on an account; the live site is the authority.

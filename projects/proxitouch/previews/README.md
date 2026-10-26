@@ -1,7 +1,7 @@
-# 场景预览
+# Previews
 
-共 12 张实际浏览器 PNG，包含 1920×1080 和一张 2560×1440 画面。`overview.png` 为四张代表性截图的 2×2 拼图；完整图库继续保留全部截图。
+12 real browser PNGs: 11 at 1920×1080 and 1 at 2560×1440. `overview.png` is a 2×2 montage of four representative pages; the full gallery keeps every screenshot.
 
-ProxiTouch：电双层 → 有效接触面积 → 双通道交互 → 夹鸡蛋应用。按原九宫格逐行阅读顺序，选取第 3、4、7、9 张。
+ProxiTouch: cover loop → fringe field → two channels → egg-grasp application.
 
-在 `index.html` 中浏览完整图库；场景、相位、显示模式、布局选择和哈希见 `manifest.json`。截图保留原比例，场景标题已在画面内显示，不再叠加重复文件名。
+Browse everything in `index.html`. Scene, phase, view mode and hashes are in `manifest.json`. Re-render with `npm run previews` after any runtime change; never relabel old images.

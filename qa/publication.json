@@ -1,66 +1,50 @@
 {
-  "repository": "https://github.com/LiX-Works/capacitance-demos",
+  "repository": "https://github.com/LiX-Works/Capacitance-Demos",
   "site": "https://lix-works.github.io/Capacitance-Demos/",
-  "deployedCommit": "5768eff46cc33e3fee4b4cc1d6d50f3ca9762304",
-  "workflowRun": "https://github.com/LiX-Works/capacitance-demos/actions/runs/37042722296",
-  "workflowConclusion": "success",
-  "checks": [
+  "edition": "English presentation edition",
+  "prepared_date": "2026-10-26",
+  "scope": "Current local build identity and intended public URLs. Live delivery is verified separately after deployment.",
+  "localBrowserChecks": 235,
+  "localBrowserFailures": 0,
+  "scientificInputsChanged": false,
+  "historicalDeployedCommit": "5768eff46cc33e3fee4b4cc1d6d50f3ca9762304",
+  "historicalReceipt": "historical/2026-10-20-before-english/qa/publication.json",
+  "deploymentHistory": "https://github.com/LiX-Works/Capacitance-Demos/actions/workflows/pages.yml",
+  "expectedBuildAssets": [
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/index.html",
-      "httpStatus": 200,
-      "bytes": 5604,
-      "sha256": "eaa2972d231cc4a9732a9ac980e7fa136b58781b9cfabdb57e0c0d8c6b1bc34d",
-      "matchesLocalBuiltArtifact": false,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 5986,
+      "sha256": "cb1d2e1440ea8b9162b89edd39c5de76f14969bf6fa301ba20462437f6ec3275"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/proxitouch/index.html",
-      "httpStatus": 200,
-      "bytes": 1586180,
-      "sha256": "777d29996d08f9a9fc108cf2d27aae04da5b9d73da1ade069461d80e53b3b68c",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 1569831,
+      "sha256": "1917cd39f751db9b2c4b71f48f02f30aaba085e604c3b1e4ab2b6eb70618e1ca"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/mutual-capacitance/index.html",
-      "httpStatus": 200,
-      "bytes": 15274189,
-      "sha256": "c9e67fa0080b752f0613c608b2d00e2048db8dd798ba00d11b8e981166b8cd28",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 15284895,
+      "sha256": "d08c00b69ef848db0ab1ec3b311257f8ff7354cd4e3a1619a78737dfd2d0f755"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/proxitouch/previews/index.html",
-      "httpStatus": 200,
-      "bytes": 4262,
-      "sha256": "5c5f470badb3bbcccf7f805cebda44a959636b2010c63bda6cd284df4992d7fc",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 4511,
+      "sha256": "9f255b7d9a082937ff9c010a4800c82fb4d187f7eaa4f643c2f079e921c0db88"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/mutual-capacitance/previews/index.html",
-      "httpStatus": 200,
-      "bytes": 4360,
-      "sha256": "94c94a1a7a31820620067692874123a61efad4c727372c633e3865d896a52299",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 4026,
+      "sha256": "db2781bcdb6d2e9ed15456154eccb4083e4655524d384546c43baff6a857dc46"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/proxitouch/previews/overview.png",
-      "httpStatus": 200,
-      "bytes": 1001504,
-      "sha256": "1c94804a78a548cb79c1c22e42234334ff76e4a9a6133e01854e52ca3df5cf2f",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 1393246,
+      "sha256": "71cba670c1b5ba3e2c0277c31fc323151d2d0230127b25c268a96ec4c11d9bbc"
     },
     {
       "url": "https://lix-works.github.io/Capacitance-Demos/mutual-capacitance/previews/overview.png",
-      "httpStatus": 200,
-      "bytes": 865480,
-      "sha256": "735e0ec67dd613ed834e73118b37a93ce0bda67bcfcd3a0c665d82fc05553ca7",
-      "matchesLocalBuiltArtifact": true,
-      "matchesAfterGitLineEndingNormalization": true
+      "bytes": 735881,
+      "sha256": "d2218026550ba6cb11e2de39232e0c2967a67e4b5ec92d2dc5b4bd56c2f4ab5e"
     }
-  ],
-  "passed": true
+  ]
 }

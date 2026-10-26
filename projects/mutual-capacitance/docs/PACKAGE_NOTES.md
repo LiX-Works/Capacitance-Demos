@@ -1,8 +1,8 @@
 # Current package notes
 
-The final runtime is generated from editable TypeScript and matches the privacy-cleaned uploaded HTML. Exact fingerprints and the checks are in `../qa/source-sync.json`, `../qa/browser-sync.json`, and `../QA_REPORT.md`.
+The maintained English runtime is generated from editable TypeScript. Its presentation intentionally differs from the immutable Chinese upload, while the scientific inputs remain frozen. Approved module fingerprints are in `RELEASE_CONTRACT.json` and `../qa/source-sync.json`. The [collection QA record](../../../QA_REPORT.md) and [browser report](../../../qa/browser-qa.json) describe the latest executed checks; historical browser-sync reports remain in the archive.
 
-The scientific model and precomputed numbers are unchanged. The original `physics/`, `data/results.json`, `parameters.json`, numerical derivations, reproduction requirements and historical evidence are retained. Historical authoring specifications live in `../archive/spec-pack/`; they must not override the final upload. Original private filenames and unsanitized originals are not distributed.
+The scientific model and precomputed numbers are unchanged. The original `physics/`, `data/results.json`, `parameters.json`, numerical derivations, reproduction requirements and historical evidence are retained. Historical authoring specifications live in `../archive/spec-pack/`; they are provenance, not instructions to restore removed pages or override the maintained edition. Original private filenames and unsanitized originals are not distributed.
 
 `../previews/` contains newly rendered public-safe screenshots, a gallery and an overview. Old QA screenshots are not reused as public previews. Historical logs and tests are explicitly marked as such. Current source maps are regenerated with relative source paths.
 

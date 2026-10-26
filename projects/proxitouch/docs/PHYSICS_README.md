@@ -22,10 +22,10 @@ Running the generator overwrites the corresponding TypeScript table and a QA rep
 
 ## Interface, mechanics and signals
 
-`source/src/models/IonicVolume.ts`, `CompositeCapacitor.ts`, `Dome.ts`, `Device.ts`, `SharedArray.ts`, and `ApplicationHero.ts` retain the final uploaded behavior. The ionic particles are explanatory visual elements, not molecular dynamics. Mechanical contact and displayed capacitance are teaching models with the assumptions already stated in the application. The egg-grasp scene is not evidence of a validated safe-grasp controller.
+`source/src/models/IonicVolume.ts`, `Dome.ts`, `Device.ts`, `SharedArray.ts`, and `ApplicationHero.ts` retain the final uploaded behavior. The ionic particles are explanatory visual elements, not molecular dynamics. Mechanical contact and displayed capacitance are teaching models with the assumptions already stated in the application. The egg-grasp scene is not evidence of a validated safe-grasp controller.
 
 `source/src/physics/interaction.ts` supplies the shared normalized interaction state. HC and CB readout modes share the same EC physical electrode. The repository distinguishes actual numerical field data from normalized conceptual signals; synchronization tests do not upgrade either into experimental validation.
 
 ## Rebuild after an explicitly approved scientific change
 
-Use `npm run build:offline` from the repository root. The existing `npm test` intentionally checks agreement with the approved final uploaded HTML. An intentional new model or data change requires a separate, reviewed baseline update; a deploy-only task must not alter that baseline or weaken its tests.
+Use `npm run build:offline` from the collection root or this project's root. The existing `npm test` checks the immutable upload, the approved module hashes for the maintained edition and frozen scientific inputs. It does not require the redesigned English presentation to be pixel-identical to the historical upload. An intentional model or data change requires a separately reviewed contract update; a presentation or deployment task must not alter the scientific baseline or weaken its tests.

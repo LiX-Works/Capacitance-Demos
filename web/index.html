@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="电容、触觉感知与电场模型的交互式科学演示合集。">
-  <title>电容 Demo · 交互式科学演示</title>
+  <meta name="description" content="Interactive science demos on capacitance, touch sensing and electric-field models.">
+  <title>Capacitance Demos · interactive science demos</title>
   <style>{{STYLE}}</style>
 </head>
 <body>
-  <header><a class="brand" href="./index.html">电容 Demo</a><span>电容 · 电场 · 触觉感知</span></header>
+  <header><a class="brand" href="./index.html">Capacitance Demos</a><span>capacitance · electric fields · touch sensing</span></header>
   <main>
     <section class="intro">
-      <p class="eyebrow">交互式科学演示</p>
-      <h1>让原理看得见</h1>
-      <p class="lead">从电极之间的场耦合，到接近、触碰与压力的感知。<br>两个独立演示，放在同一个入口。</p>
-      <p class="instruction">在电脑浏览器中打开，使用目录或方向键浏览，也可以进入探索模式。</p>
+      <p class="eyebrow">Interactive science demos</p>
+      <h1>Make the field visible</h1>
+      <p class="lead">From the field coupling between two electrodes to sensing approach, touch and pressure.<br>Two independent demos, one entrance.</p>
+      <p class="instruction">Best on a desktop browser. Use the contents menu or the arrow keys, or switch to Explore.</p>
     </section>
-    <section class="projects" aria-label="演示项目">
+    <section class="projects" aria-label="Demos">
       <article class="card">
-        <a class="preview" href="{{PROXI}}index.html" aria-label="打开 ProxiTouch 演示"><img src="{{PROXI}}previews/11-shared-pixel-hero.png" alt="ProxiTouch 共享电极与离子凝胶微穹顶结构" width="1920" height="1080"></a>
-        <div class="card-body"><p class="tag">23 个场景 · 概念设计</p><h2>ProxiTouch</h2><p>电容传感、离子界面与共享电极。沿着接近、触碰和施压的过程，理解连续感知的设计思路。</p><div class="links"><a class="primary" href="{{PROXI}}index.html">进入演示 <span aria-hidden="true">↗</span></a><a href="{{PROXI}}previews/index.html">场景预览</a></div></div>
+        <a class="preview" href="{{PROXI}}index.html" aria-label="Open the ProxiTouch demo"><img src="{{PROXI}}previews/01-cover.png" alt="ProxiTouch cover: a capacitive pixel with field lines and an approaching target" width="1920" height="1080"></a>
+        <div class="card-body"><p class="tag">12 pages · concept design</p><h2>ProxiTouch</h2><p>One pixel that senses a finger coming, the first touch and the press, by handing one shared electrode from a fringe field to an ionic interface.</p><div class="links"><a class="primary" href="{{PROXI}}index.html">Open demo <span aria-hidden="true">↗</span></a><a href="{{PROXI}}previews/index.html">Previews</a></div></div>
       </article>
       <article class="card">
-        <a class="preview" href="{{MUTUAL}}index.html" aria-label="打开互电容建模实验室"><img src="{{MUTUAL}}previews/10-rotated-field.png" alt="有限电极转动时的电势分布与定量电容曲线" width="1920" height="1080"></a>
-        <div class="card-body"><p class="tag">12 个场景 · 定量建模</p><h2>互电容建模实验室</h2><p>从平行板展开到共面电极，比较解析近似、预计算电场与电容结果，观察有限介质怎样改变场分布。</p><div class="links"><a class="primary" href="{{MUTUAL}}index.html">进入演示 <span aria-hidden="true">↗</span></a><a href="{{MUTUAL}}previews/index.html">场景预览</a></div></div>
+        <a class="preview" href="{{MUTUAL}}index.html" aria-label="Open the Mutual-Capacitance Lab"><img src="{{MUTUAL}}previews/05-field-potential.png" alt="Computed potential around a rotating electrode next to a fixed one" width="1920" height="1080"></a>
+        <div class="card-body"><p class="tag">8 pages · numerical model</p><h2>Mutual-Capacitance Lab</h2><p>Unfold two plates from facing to side by side. Boundary-element solutions, analytic shortcuts and four independent checks show how much capacitance survives.</p><div class="links"><a class="primary" href="{{MUTUAL}}index.html">Open demo <span aria-hidden="true">↗</span></a><a href="{{MUTUAL}}previews/index.html">Previews</a></div></div>
       </article>
     </section>
-    <aside class="scope"><h2>关于这些演示</h2><p>ProxiTouch 展示概念设计，尚未制造或实测。互电容展示具有明确参数与适用范围的数值计算；浏览器读取预计算数据，在计算节点之间插值。两者都保留模型边界，不将动画或计算结果当作实验性能。</p><p>三维演示需要支持 WebGL2 的浏览器。完整源码、数据与复现说明随仓库提供，两个演示也可以离线打开。</p></aside>
+    <aside class="scope"><h2>Background and limits</h2><p>Both demos began as two talks in an undergraduate sensors course. The course asked for the principles, usually shown on slides; these talks were built as interactive web demos instead, ProxiTouch first and the numerical lab second.</p><p>ProxiTouch is a concept design; it has not been fabricated or measured. The lab shows numerical results with explicit parameters and limits; the browser reads precomputed data and interpolates between solved angles. Neither presents animation or simulation as experimental performance.</p><p>The 3-D views need a WebGL2 browser. Full source, data and reproduction notes ship with the repository, and both demos also open offline.</p></aside>
   </main>
-  <footer><span>电容 Demo</span><div><a href="{{LICENSE}}">MIT 许可</a><a href="./THIRD_PARTY_NOTICES.md">第三方许可</a></div></footer>
+  <footer><span>Capacitance Demos</span><div><a href="{{LICENSE}}">MIT licence</a><a href="./THIRD_PARTY_NOTICES.md">Third-party notices</a></div></footer>
 </body>
 </html>

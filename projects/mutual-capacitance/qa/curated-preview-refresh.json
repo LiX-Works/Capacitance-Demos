@@ -1,6 +1,6 @@
 {
-  "runtimeSha256": "c9e67fa0080b752f0613c608b2d00e2048db8dd798ba00d11b8e981166b8cd28",
-  "count": 12,
+  "runtimeSha256": "d08c00b69ef848db0ab1ec3b311257f8ff7354cd4e3a1619a78737dfd2d0f755",
+  "count": 10,
   "errors": [],
   "networkRequests": [],
   "method": "Real Chromium owned-document render in an offline context."

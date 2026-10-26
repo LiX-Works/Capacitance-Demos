@@ -1,7 +1,7 @@
-# 场景预览
+# Previews
 
-共 12 张实际浏览器 PNG，包含 1920×1080 和一张 2560×1440 画面。`overview.png` 为四张代表性截图的 2×2 拼图；完整图库继续保留全部截图。
+10 real browser PNGs: 9 at 1920×1080 and 1 at 2560×1440. `overview.png` is a 2×2 montage of four representative pages; the full gallery keeps every screenshot.
 
-互电容：展开电极 → 理想扇区 → 介质边缘场 → 角度模型比较。减少重复的电极场线视图，分别展示几何、解析模型、材料效应与定量比较。
+Mutual-Capacitance Lab: the cover question → boundary-element potential map → the 0–180° sweep → the four checks.
 
-在 `index.html` 中浏览完整图库；场景、相位、显示模式、布局选择和哈希见 `manifest.json`。截图保留原比例，场景标题已在画面内显示，不再叠加重复文件名。
+Browse everything in `index.html`. Scene, phase, view mode and hashes are in `manifest.json`. Re-render with `npm run previews` after any runtime change; never relabel old images.

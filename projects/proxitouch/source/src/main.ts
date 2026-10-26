@@ -37,7 +37,7 @@ private toggleExploreBase(force?:boolean){const enter=force??!this.explore;if(en
   canvas.addEventListener('pointermove',e=>{if(!drag||!this.explore)return;this.frame.camera.orbit(-(e.clientX-drag.x)*.004,-(e.clientY-drag.y)*.004);this.exploreCamera=structuredClone(this.frame.camera.state);drag={x:e.clientX,y:e.clientY};this.draw();});
   canvas.addEventListener('pointerup',()=>drag=undefined);canvas.addEventListener('pointercancel',()=>drag=undefined);
   canvas.addEventListener('wheel',e=>{if(!this.explore)return;e.preventDefault();this.frame.camera.zoom(e.deltaY*.0009);this.exploreCamera=structuredClone(this.frame.camera.state);this.draw();},{passive:false});
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();this.hud.message('\u56fe\u5f62\u4e0a\u4e0b\u6587\u4e22\u5931\uff0c\u8bf7\u5237\u65b0\u540e\u4f7f\u7528 SAFE \u753b\u8d28\u3002');});
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();this.hud.message('Graphics context lost. Reload the page and choose the SAFE quality setting.');});
   this.draw();this.record();requestAnimationFrame(t=>this.tick(t));
  }
  get def(){return SCENES[this.index];}

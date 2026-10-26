@@ -1,14 +1,25 @@
 # ProxiTouch
 
-电容传感基础、离子界面与共享中央电极的连续感知概念设计。共 23 个场景，是 [电容 Demo 合集](../../README.md) 的一个独立演示。
+A concept design for one capacitive pixel that follows a whole touch: it senses a finger coming, registers the first contact, then reads the press. One shared electrode hands the measurement from a fringe field in the air to an ionic interface. Twelve pages; one demo of the [Capacitance Demos collection](../../README.md).
 
-![当前实际浏览器预览](previews/overview.png)
+![Current browser previews](previews/overview.png)
 
-## 打开与构建
+## The story
 
-合集本地入口是根目录 `index.html`，或者运行根目录 `npm run preview`。本项目生成的 `index.html` 也可直接离线打开；浏览器需要 WebGL2。
+| Pages | What they show |
+| --- | --- |
+| Cover | The full approach → touch → press loop, with a live stage track and both channel levels |
+| 01–03 · Two ways to sense touch | A fringe field that reaches into the air; an electric double layer only nanometres thick; pressure growing the contact area |
+| 04–08 · One shared electrode | The question, the shared electrode, the pixel layers, one touch read on two channels, and time-division multiplexing |
+| 09–11 · From pixel to surface | A shared-frame array, a sensing surface, and an egg-grasp application concept |
 
-在本项目目录使用 Node.js 22 或更新版本：
+The 2026-10-23 English edition merged the original 23 slides: the parallel-plate, series/parallel and composite-capacitor basics folded into the mechanism pages, and the three single-stage pages folded into "One touch, two channels", whose paragraphs light up with the animation.
+
+## Open and build
+
+The collection entrance is the root `index.html`, or run `npm run preview` from the repository root. The generated `index.html` in this folder also opens offline; the browser needs WebGL2.
+
+From this folder, with Node.js 22 or newer:
 
 ```sh
 npm run build:offline
@@ -16,20 +27,20 @@ npm run check
 npm test
 ```
 
-离线构建使用附带的 TypeScript 5.8.3。联网安装可用 `npm --prefix source ci`，锁文件已提供。源码在 `source/src/`、样式在 `source/public/`；构建重新生成 `dist/`、`index.html`、项目 `site/`。合集工作流再汇总为根 `site/proxitouch/`。
+The offline build uses the bundled TypeScript 5.8.3; `npm --prefix source ci` installs from the lock file when online. Source is in `source/src/`, styles in `source/public/`; the build regenerates `dist/`, `index.html` and the project `site/`, which the collection workflow gathers into the root `site/proxitouch/`.
 
-## 当前修复与保留内容
+## What is preserved
 
-原上传基准 `reference/final-upload.html` 保持原字节。科学参数和预计算数据保留；交互与工程修复通过 [发布约束](docs/RELEASE_CONTRACT.json) 记录到精确模块哈希，既有基准不被新输出替换。修复清单与验收见 [合集 CHANGELOG](../../CHANGELOG.md)、[合集 QA](../../QA_REPORT.md)。
+The original upload `reference/final-upload.html` keeps its original bytes, including the original Chinese text. Scientific parameters and precomputed field tables are unchanged. Every built module is approved by exact hash in the [release contract](docs/RELEASE_CONTRACT.json); modules changed by the English edition are marked there. The current page text is exported in [SCENE_COPY.md](docs/SCENE_COPY.md).
 
-`npm test` 检查发布约束、科学输入与 proxi-regressions.mjs 中的行为回归。浏览器验收从合集根目录运行 `npm run qa`，覆盖 HTTP、仓库子路径和离线文件。预览刷新使用根 `npm run previews`。
+`npm test` checks the release contract, the frozen scientific inputs and the behaviour regressions in `proxi-regressions.mjs`. Browser checks run from the collection root with `npm run qa`; previews refresh with `npm run previews`.
 
-## 模型范围
+## Model scope
 
-ProxiTouch 尚未制造或实测。离子、微穹顶及信号用于概念解释；二维数值场在三维切片中展示，不是完整器件的三维有限元验证。详见 [物理说明](docs/PHYSICS_README.md)。
+ProxiTouch has not been fabricated or measured. Ions, micro-domes and signals are explanatory models; the 2-D numerical fields are drawn as 3-D depth slices and are not a full 3-D finite-element validation of the device. See [physics notes](docs/PHYSICS_README.md).
 
-## 档案与许可
+## Archive and licence
 
-历史报告和旧测试在 `archive/`、`source/legacy-tests/`；原先独立仓库的部署交接保存在 `archive/prior-github-handoff/`。历史结论不自动代表本次验收。
+Historical reports and old tests are in `archive/` and `source/legacy-tests/`; the earlier stand-alone deployment hand-off is in `archive/prior-github-handoff/`. Historical conclusions do not certify the current build.
 
-原创源码、图文和数据使用 [MIT](LICENSE)；KaTeX 和 TypeScript 保留第三方许可。独立 HTML 和发布目录带有必要通知。发布统一由 [合集工作流](../../.github/workflows/pages.yml) 处理。
+Original source, text and data are under [MIT](LICENSE); KaTeX and TypeScript keep their own licences, and the stand-alone HTML and the published site carry the required notices. Publishing goes through the [collection workflow](../../.github/workflows/pages.yml).

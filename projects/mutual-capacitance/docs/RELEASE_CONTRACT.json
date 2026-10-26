@@ -1,7 +1,7 @@
 {
-  "revision": "2026-10-02 collection bug fixes",
+  "revision": "2026-10-25 English presentation edition",
   "referenceSha256": "57bcbde1c450ec948f227ed2e8ae8b6d115282d0c441142cb7bb4e9e809d9b9e",
-  "cssSha256": "3af997399a2ac81562b9333bf68b69ee0dd3549858f3158cf87318e125b2e7e2",
+  "cssSha256": "7c00db45e7cfe0530fc150b10248fb2b942c4623c743990d489370d1a42800e0",
   "modules": {
     "engine/camera.js": {
       "referenceNormalizedSha256": "7c36f7310d99d4a11f26e0a478cc755c94117e099b10d5fb9cdbe7aa60b382dc",
@@ -30,18 +30,18 @@
     },
     "main.js": {
       "referenceNormalizedSha256": "890c77c4ca8fe60a0c116ca0eb6e966fd97714c57474d8c4f6d537ca3bcfdf52",
-      "approvedNormalizedSha256": "bf7621526bd800000db8972526ba688a61d4cacfd92baadbf805196b9a4f6e1d",
-      "reason": "Restore exploration state and playback, retain native focused controls, bound telemetry history."
+      "approvedNormalizedSha256": "dac9cd0720326869c6e7ab67dbcdcce116489aaeeb37e124bfdd3f7e65f3b423",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "models/Experiment.js": {
       "referenceNormalizedSha256": "d29c500f104f9ae82a3e21884e8091f00a7cde2bf1c50ec59466fd53c7c1f9cc",
-      "approvedNormalizedSha256": "1033cb4742d4efeda96fdd48d5d3001e53b9769896a1641bee7e89b922d24f53",
-      "reason": "Reuse dimension-line geometry to avoid orphaned GPU allocations."
+      "approvedNormalizedSha256": "0543c73bcacb76922e6b1f62a3aec9be1aa86db842eb6fc8e5d696ca69f765ec",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "models/Wedge.js": {
       "referenceNormalizedSha256": "8f0e5410dab1f292993f3b79f360efe395472859c6399e456604ee88882fea7a",
-      "approvedNormalizedSha256": "8f0e5410dab1f292993f3b79f360efe395472859c6399e456604ee88882fea7a",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "d315ea4c19329591a074debb8deb78782242f30a4bed073970b38e94311bbbe4",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "physics/data.js": {
       "referenceNormalizedSha256": "9827faaf46e5be377adbe9253c8e75d57f27253a45de2b36b9862e39bd71504b",
@@ -55,23 +55,23 @@
     },
     "scenes/definitions.js": {
       "referenceNormalizedSha256": "e6628660560f16a343d3ed39f91213e32d8a02bd6d23f54811e61315a34294e3",
-      "approvedNormalizedSha256": "e6628660560f16a343d3ed39f91213e32d8a02bd6d23f54811e61315a34294e3",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "15107a6027bfeb8ecb809f2ab69e6adffca7eceb4b01b5cca62e42e694d12a54",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "ui/Chart.js": {
       "referenceNormalizedSha256": "2b7f353db67e983b0cd92de916742a41bb3d341b063e5f103176ab97111f44b8",
-      "approvedNormalizedSha256": "414638045b4d2cb864c8ae8a0d2a203784b911462c50e6ac9e070ae9adb385b9",
-      "reason": "Show selected material curves/approximations and keep all current values in the chart."
+      "approvedNormalizedSha256": "1fe14489e7aee2f7c59246a9e806383ce26226595387fa7c6e14b6ed6e7a2d8c",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "ui/HUD.js": {
       "referenceNormalizedSha256": "113f73c24469ad662bf670bfb6619a2a0e47bd775c9ff4ca8788994759d381bd",
-      "approvedNormalizedSha256": "113f73c24469ad662bf670bfb6619a2a0e47bd775c9ff4ca8788994759d381bd",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "ca7543b908d852e4090f3a2ed63a146f8908af4fa195872497f54e4ab0396413",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "ui/Labels.js": {
       "referenceNormalizedSha256": "fb21ad79d02a1bd89d839a86b9938dd86e15553a17e8b9fbe87b6dcc5b060b02",
-      "approvedNormalizedSha256": "fb21ad79d02a1bd89d839a86b9938dd86e15553a17e8b9fbe87b6dcc5b060b02",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "8907cea3f35af19e8280b36f99fd942d54463478dc58d5ddf7019ae20c2c241f",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "vendor/katex.js": {
       "referenceNormalizedSha256": "cf0dad858071356ce2d8ca59b02f32b8c44a936649758399e3184cd6b0950d46",

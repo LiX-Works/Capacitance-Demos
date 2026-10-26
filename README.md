@@ -1,25 +1,25 @@
-# 电容 Demo
+# Capacitance Demos
 
-电容、电场与触觉感知的交互式科学演示合集。两个辅助作品放在同一个入口，各自保留源码、数据与模型说明。
+Interactive science demos on capacitance, electric fields and touch sensing. Two independent demos share one entrance; each keeps its own source, data and model notes.
 
-**项目背景：**两个演示分别来自本科传感器课程的两次课堂汇报。课程只要求讲解原理，常规做法是幻灯片；作者选择做成可交互的网页演示。先完成了 ProxiTouch，下一次汇报又进一步尝试了带数值建模的互电容实验室。
+**Background:** both demos began as two talks in an undergraduate sensors course. The course asked for the principles, usually explained with slides; the author built interactive web demos instead, ProxiTouch first and then a mutual-capacitance lab with numerical modelling.
 
-**[在线合集](https://lix-works.github.io/Capacitance-Demos/)** · [ProxiTouch](https://lix-works.github.io/Capacitance-Demos/proxitouch/) · [互电容建模实验室](https://lix-works.github.io/Capacitance-Demos/mutual-capacitance/)
+**[Open the collection](https://lix-works.github.io/Capacitance-Demos/)** · [ProxiTouch](https://lix-works.github.io/Capacitance-Demos/proxitouch/) · [Mutual-Capacitance Lab](https://lix-works.github.io/Capacitance-Demos/mutual-capacitance/) · [中文说明](README.zh-CN.md)
 
-| 演示 | 内容 | 入口 |
+| Demo | What it shows | More |
 | --- | --- | --- |
-| **ProxiTouch** | 23 场景：电容传感、离子界面、共享电极与连续感知概念设计 | [项目介绍](projects/proxitouch/README.md) · [场景预览](projects/proxitouch/previews/overview.png) |
-| **互电容建模实验室** | 12 场景：有限电极旋转、解析近似、BEM 数据、有限介质与数值检查 | [项目介绍](projects/mutual-capacitance/README.md) · [场景预览](projects/mutual-capacitance/previews/overview.png) |
+| **ProxiTouch** | 12 pages. A concept pixel that senses a finger coming, the first touch and the press by handing one shared electrode from a fringe field to an ionic interface. | [Project notes](projects/proxitouch/README.md) · [Previews](projects/proxitouch/previews/overview.png) |
+| **Mutual-Capacitance Lab** | 8 pages. Two plates unfold from facing to side by side; boundary-element solutions, analytic shortcuts and four independent checks show how much capacitance survives. | [Project notes](projects/mutual-capacitance/README.md) · [Previews](projects/mutual-capacitance/previews/overview.png) |
 
-![ProxiTouch 场景预览](projects/proxitouch/previews/overview.png)
+![ProxiTouch previews](projects/proxitouch/previews/overview.png)
 
-![互电容场景预览](projects/mutual-capacitance/previews/overview.png)
+![Mutual-Capacitance Lab previews](projects/mutual-capacitance/previews/overview.png)
 
-两个概览均为精选的 2×2 拼图，完整图库保留每个项目的 12 张实际截图。ProxiTouch 展示离子机理、接触面积、双通道交互和应用；互电容展示展开几何、理想扇区、介质边缘场和定量模型比较。
+Each overview is a 2×2 montage of real browser renders; the full galleries keep every screenshot. ProxiTouch: the cover loop, the fringe field, the two channels and the egg-grasp application. Lab: the cover question, the computed potential, the 0–180° sweep and the checks.
 
-## 运行与修改
+## Run and edit
 
-使用 Node.js 22 或更新版本，在本仓库根目录运行：
+With Node.js 22 or newer, from this folder:
 
 ```sh
 npm run build
@@ -28,13 +28,13 @@ npm test
 npm run preview
 ```
 
-打开终端打印的本地地址。构建使用包内 TypeScript 5.8.3，无需联网安装。构建后，`index.html` 是离线合集入口；两个演示的 `projects/<name>/index.html` 也可直接打开，需要 WebGL2 浏览器。
+Open the address the preview prints. The build uses the bundled TypeScript 5.8.3 and needs no network. After a build, `index.html` is the offline collection entrance, and each demo's `projects/<name>/index.html` also opens directly in a WebGL2 browser.
 
-合集首页在 `web/`，演示源代码在 `projects/<name>/source/src/`。修改源码后重新构建，不单独编辑打包 HTML。
+The collection page lives in `web/`; demo source lives in `projects/<name>/source/src/`. Edit the source and rebuild; never edit the bundled HTML by hand.
 
-## 验证与部署
+## Verify and deploy
 
-浏览器检查与预览刷新需要 Python 3.12、Playwright 和 Pillow：
+Browser checks and preview refreshes need Python 3.12, Playwright and Pillow:
 
 ```sh
 python -m pip install -r requirements-qa.txt
@@ -45,14 +45,14 @@ npm run build
 npm test
 ```
 
-`qa` 检查真实 HTTP、仓库子路径、35 个场景及关键交互；预览命令重新渲染实际应用，不以旧图片代替当前验证。科学重算另见各项目文档，运行网页不需要 Python 求解服务。
+`qa` opens real HTTP routes under a repository sub-path, every page of both demos at three animation phases, the key interactions and the offline files. `previews` re-renders the real application instead of reusing old images. The browser runs on precomputed data; no Python solver is needed to view the demos.
 
-单个 [GitHub Pages 工作流](.github/workflows/pages.yml) 构建两个项目，仅发布根 `site/`。设置与上传范围见 [DEPLOY.md](DEPLOY.md)；构建与发布结果可在仓库 Actions 页面查看。
+A single [GitHub Pages workflow](.github/workflows/pages.yml) builds both demos and publishes only the root `site/`. Settings and upload scope are in [DEPLOY.md](DEPLOY.md).
 
-可选科学抽验使用互电容项目的 `requirements-reproduce.txt`，运行 `npm run test:science`。它只复算 8 个 BEM 工况并核对单位、编码和几何，不覆盖已发布数据，也不代表完整重算。`npm run test:safety` 用标准库测试失败阶段不会覆盖既有成果，无需科学依赖。
+The optional scientific smoke test uses the lab's `requirements-reproduce.txt` and `npm run test:science`. It re-solves 8 BEM cases and checks units, encoding and geometry; it does not overwrite published data and is not a full regeneration. `npm run test:safety` checks with the standard library that a failed scientific stage never overwrites existing results.
 
-## 模型范围与授权
+## Model scope and licence
 
-ProxiTouch 是未制造、未实测的概念设计。互电容展示真实尺寸参数下的预计算数值与节点插值；二维宽度外推、局部近似和有限宽度三维检查各有适用范围。功能回归不等于实验验证。
+ProxiTouch is a concept design; it has not been fabricated or measured. The lab shows precomputed numerical results for stated dimensions, interpolated between solved angles; 2-D results are scaled by the real width, and finite-width 3-D checks exist for three air angles. Passing regression tests is not experimental validation.
 
-原创源码、图文和数据采用 [MIT](LICENSE)，允许修改与商业复用；第三方组件保留各自授权，详见 [许可声明](THIRD_PARTY_NOTICES.md)。历史上传基线与既有科学证据保留在各项目 `reference/`、`archive/`。当前修复和验证见 [CHANGELOG.md](CHANGELOG.md) 与 [QA_REPORT.md](QA_REPORT.md)。
+Original source, text and data are under the [MIT licence](LICENSE), which allows modification and commercial reuse; third-party components keep their own licences, see [notices](THIRD_PARTY_NOTICES.md). The historical upload baselines and scientific evidence stay in each project's `reference/` and `archive/`. Changes and verification are in [CHANGELOG.md](CHANGELOG.md) and [QA_REPORT.md](QA_REPORT.md).

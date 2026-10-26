@@ -1,6 +1,6 @@
-"""Verify real collection URLs, frozen scientific visuals and repaired interactions."""
+"""Verify real collection URLs, every page of both demos and the key interactions (2026-10-23 English edition)."""
 from pathlib import Path
-import json, base64, hashlib, sys
+import json, re, sys
 from playwright.sync_api import sync_playwright
 from browser_support import ROOT,NAMES,read_json,write_json,sha,launch,server
 
@@ -8,6 +8,7 @@ report={'method':'Real Chromium isolated profile, HTTP project subpath and offli
         'rendererScope':'SwiftShader functional checks, no hardware FPS claim',
         'checks':[],'errors':[],'externalRequests':[],'projects':{}}
 artifacts=ROOT/'qa/browser-artifacts';artifacts.mkdir(parents=True,exist_ok=True)
+CJK=re.compile(r'[一-鿿]')
 def check(name,ok,detail=None):
     report['checks'].append({'name':name,'passed':bool(ok),'detail':detail})
     if not ok:print('FAIL',name,flush=True)
@@ -18,9 +19,6 @@ def attach(page):
     page.on('pageerror',lambda error:report['errors'].append(str(error)))
     page.on('request',lambda req:report['externalRequests'].append(req.url) if url_external(req.url) else None)
 def url_external(url):return not url.startswith(('http://127.0.0.1:','file:','data:','about:'))
-def pixel_hash(page,api):
-    image=ev(page,api,"API.app.renderer.canvas.toDataURL('image/png').split(',')[1]")
-    return hashlib.sha256(base64.b64decode(image)).hexdigest()
 
 with sync_playwright() as pw, server() as base:
     browser=launch(pw)
@@ -28,7 +26,8 @@ with sync_playwright() as pw, server() as base:
     try:
         page=browser.new_page(viewport={'width':1280,'height':900});attach(page)
         response=page.goto(base,wait_until='networkidle');check('Collection entrance loads by HTTP',response.status==200)
-        check('Both demo entries visible',page.get_by_role('link',name='进入演示').count()==2)
+        check('Both demo entries visible',page.get_by_role('link',name='Open demo').count()==2)
+        check('Entrance is English',not CJK.search(page.locator('body').inner_text()))
         check('Entrance images loaded',page.locator('img').evaluate_all('(xs)=>xs.every(x=>x.complete&&x.naturalWidth>0)'))
         page.screenshot(path=str(artifacts/'collection-desktop.png'),full_page=True)
         page.set_viewport_size({'width':390,'height':844})
@@ -42,12 +41,7 @@ with sync_playwright() as pw, server() as base:
             ev(page,api,'API.captureMode(true);API.stop();')
             ids=ev(page,api,'API.scenes.map(s=>s.id)')
             check(name+' scene count',len(ids)==config['sceneCount'])
-            record={'runtimeSha256':sha(project/'index.html'),'scenes':len(ids),'renderer':ev(page,api,'API.diagnostics().renderer')}
-            report['projects'][name]=record
-            ref=browser.new_page(viewport={'width':1920,'height':1080});attach(ref);ref.context.set_offline(True)
-            ref.set_content((project/config['baseline']).read_text(encoding='utf-8'),wait_until='load',timeout=90000)
-            ref.wait_for_function(f'window.{api}?.ready',timeout=60000)
-            ev(ref,api,'API.captureMode(true);API.stop();')
+            report['projects'][name]={'runtimeSha256':sha(project/'index.html'),'scenes':len(ids),'renderer':ev(page,api,'API.diagnostics().renderer')}
             for sid in ids:
                 for phase in (0,.5,1):
                     if name=='proxitouch':ev(page,api,'a=>{API.ambientTime(6.8);API.goTo(a[0],a[1]);API.flush();}',[sid,phase])
@@ -55,18 +49,20 @@ with sync_playwright() as pw, server() as base:
                     d=ev(page,api,'API.diagnostics()')
                     check(f'{name} {sid} phase {phase}: renders without GL, math or runtime errors',d.get('glError')==0 and d.get('mathErrors')==0 and not d.get('errors'),{'glError':d.get('glError'),'mathErrors':d.get('mathErrors'),'errors':d.get('errors')})
                     check(f'{name} {sid} phase {phase}: finite camera and model',ev(page,api,"()=>{const s=API.snapshot();return Object.values(s.camera).every(v=>typeof v!=='number'||Number.isFinite(v))&&s.camera.position.every(Number.isFinite);}"))
-                if name=='proxitouch':ev(ref,api,'s=>{API.ambientTime(6.8);API.goTo(s,1);API.flush();}',sid)
-                else:ev(ref,api,'s=>{API.goTo(s,1);API.flush();}',sid)
-                check(f'{name} {sid}: scientific 3D pixels preserve historical state',pixel_hash(page,api)==pixel_hash(ref,api))
-                check(f'{name} {sid}: explanation text preserved',page.locator('.copy-scroll').inner_text()==ref.locator('.copy-scroll').inner_text())
-            ref.close()
+                    check(f'{name} {sid} phase {phase}: no panel leaves the viewport',not d.get('overflow'),d.get('overflow'))
+                text=page.locator('#app').inner_text()
+                check(f'{name} {sid}: visible text is English',not CJK.search(text))
             check(name+' no private homepage block',page.locator('.author-info').count()==0)
             if name=='proxitouch':
-                ev(page,api,"API.captureMode(false);API.goTo('S03',0);")
+                ev(page,api,"API.captureMode(false);API.goTo('S12',0);")
                 hint=page.locator('.navigation-hint').inner_text()
-                check('Proxi live loop navigation hint is accurate','中断' in hint and '再按' not in hint,hint)
-                page.locator('#next-button').click();check('Proxi button immediately interrupts loop',ev(page,api,'API.snapshot().scene')=='S04')
-                ev(page,api,"API.captureMode(true);API.goTo('S14',1);")
+                check('Proxi live loop navigation hint is accurate','skips the animation' in hint,hint)
+                page.locator('#next-button').click();check('Proxi button immediately interrupts loop',ev(page,api,'API.snapshot().scene')=='S13')
+                ev(page,api,"API.goTo('S00',0);");page.wait_for_timeout(2500)
+                check('Proxi cover stage track follows the loop',page.locator('.stage-track li.active').count()==1 and page.locator('.stage-track').is_visible())
+                ev(page,api,"API.captureMode(true);API.goTo('S19',.85);API.flush();")
+                check('Proxi S19 highlights the pressure paragraph',page.locator('.stage-copy.active').get_attribute('data-stage')=='pressure')
+                ev(page,api,"API.goTo('S14',1);")
                 before=ev(page,api,'API.snapshot().scene');page.locator('#menu-button').press('Space')
                 check('Proxi focused menu Space opens menu without changing scene',page.locator('.chapter-menu').is_visible() and ev(page,api,'API.snapshot().scene')==before)
                 page.keyboard.press('Escape');page.locator('#notes-button').press('Space')
@@ -76,20 +72,24 @@ with sync_playwright() as pw, server() as base:
                 after=ev(page,api,'API.snapshot()');check('Proxi explore exit restores capture model/camera',before['camera']==after['camera'] and before['model']==after['model'])
                 page.screenshot(path=str(artifacts/'proxitouch.png'))
             else:
-                ev(page,api,"API.captureMode(false);API.goTo('05',0,true);")
+                ev(page,api,"API.captureMode(false);API.goTo('04',0,true);")
                 page.wait_for_function('__LAB.snapshot().state.field==="potential"',timeout=30000)
-                check('Lab real completed loop advances field mode',True)
-                page.locator('[data-field="strength"]').click();check('Lab manual field mode selects strength',ev(page,api,'API.snapshot().state.field')=='strength')
-                page.locator('#next').click();check('Lab Next interrupts field loop',ev(page,api,'API.snapshot().scene')=='06')
-                ev(page,api,"API.captureMode(true);API.goTo('06',1);API.captureMode(false);API.stop();")
-                page.locator('#menu-toggle').press('Space');check('Lab focused menu Space leaves phase and scene unchanged',page.locator('.menu').is_visible() and ev(page,api,'API.snapshot().scene')=='06')
-                page.keyboard.press('Escape');page.locator('#explore-toggle').click();page.locator('#theta').press('Home');page.locator('#material-toggle').click()
-                check('Lab displayed dielectric trace matches chosen material',page.locator('.trace.diel').count()>0 and ev(page,api,'API.snapshot().state.er')==4)
-                marker=page.locator('.marker').get_attribute('cy');clip=page.locator('#plot-clip rect').get_attribute('y')
-                check('Lab dielectric marker remains in chart',float(marker)-5.5>=float(clip))
-                page.keyboard.press('Escape');ev(page,api,"API.goTo('12',1);API.field('potential');API.flush();")
+                check('Lab field page loop advances the field view',True)
+                page.locator('[data-field="strength"]').click();check('Lab field switch selects strength',ev(page,api,'API.snapshot().state.field')=='strength')
+                page.locator('#next').click();check('Lab Next interrupts the loop',ev(page,api,'API.snapshot().scene')=='05')
+                check('Lab field switch only appears where it is used',not page.locator('.field-control').is_visible())
+                ev(page,api,"API.captureMode(true);API.goTo('05',1);API.captureMode(false);API.stop();")
+                page.locator('#menu-toggle').press('Space');check('Lab focused menu Space leaves phase and scene unchanged',page.locator('.menu').is_visible() and ev(page,api,'API.snapshot().scene')=='05')
+                page.keyboard.press('Escape')
+                page.locator('#theta').evaluate("x=>{x.value='120';x.dispatchEvent(new Event('input',{bubbles:true}))}")
+                snap=ev(page,api,'API.snapshot()');check('Lab angle slider sets the angle and stops the loop',abs(snap['state']['theta']-120)<1e-6 and not snap['playing'])
+                marker=page.locator('.chart .marker').first.get_attribute('cy');check('Lab chart marker stays in the chart',0<float(marker)<page.locator('.chart svg').bounding_box()['height'])
+                ev(page,api,"API.goTo('01',.5);API.stop();");box=page.locator('#model-zone').bounding_box()
+                page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2);page.mouse.down();page.mouse.move(box['x']+box['width']/2+90,box['y']+box['height']/2-20,steps=6);page.mouse.up()
+                check('Lab model turns by direct drag and offers Reset view',page.locator('#reset-view').is_visible())
+                page.locator('#reset-view').click();check('Lab Reset view hides again',not page.locator('#reset-view').is_visible())
+                ev(page,api,"API.captureMode(true);API.goTo('05',.45);API.flush();")
                 page.screenshot(path=str(artifacts/'mutual-capacitance.png'))
-            # Representative viewport check at the normal 1280x720 desktop breakpoint.
             page.set_viewport_size({'width':1280,'height':720})
             d=ev(page,api,'API.diagnostics()');check(name+' desktop document fits viewport',not d.get('documentOverflow'),d.get('overflow'))
             page.set_viewport_size({'width':1920,'height':1080})

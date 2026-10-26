@@ -1,7 +1,10 @@
 {
   "project": "proxitouch",
-  "release": "Combined collection with selected 2x2 previews",
-  "runtimeSha256": "777d29996d08f9a9fc108cf2d27aae04da5b9d73da1ade069461d80e53b3b68c",
+  "edition": "English presentation edition",
+  "prepared_date": "2026-10-26",
+  "scope": "Current generated runtime and curated browser previews; not a numerical validation",
+  "sceneCount": 12,
+  "runtimeSha256": "1917cd39f751db9b2c4b71f48f02f30aaba085e604c3b1e4ab2b6eb70618e1ca",
   "referenceSha256": "7130d27380409fc5012a6614d201397b61b964d1b6c4699b8724f903f164bc33",
   "overview": {
     "columns": 2,
@@ -10,16 +13,17 @@
     "cellHeight": 675,
     "gutter": 16,
     "images": [
-      "04-ionic-interface.png",
-      "06-contact-area.png",
-      "08-dual-signals.png",
-      "10-egg-grasp.png"
+      "01-cover.png",
+      "02-fringe-field.png",
+      "07-two-channels.png",
+      "11-egg-grasp.png"
     ],
     "file": "overview.png",
     "width": 2416,
     "height": 1366,
-    "sha256": "1c94804a78a548cb79c1c22e42234334ff76e4a9a6133e01854e52ca3df5cf2f"
+    "sha256": "71cba670c1b5ba3e2c0277c31fc323151d2d0230127b25c268a96ec4c11d9bbc"
   },
+  "previewManifest": "previews/manifest.json",
   "fullPackageManifest": "../../BUILD_MANIFEST.json",
-  "historicalManifest": "archive/prior-github-handoff/BUILD_MANIFEST.json"
+  "historicalManifest": "../../qa/historical/2026-10-20-before-english/projects/proxitouch/BUILD_MANIFEST.json"
 }

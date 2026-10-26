@@ -1,12 +1,12 @@
 {
-  "revision": "2026-10-02 collection bug fixes",
+  "revision": "2026-10-25 English presentation edition",
   "referenceSha256": "7130d27380409fc5012a6614d201397b61b964d1b6c4699b8724f903f164bc33",
-  "cssSha256": "3409b4110a314d3a3aa6b4980dbc831244c305bbf1d3daf8d0836a481019de49",
+  "cssSha256": "ce7f777ee459ccbc70821e2803362e6a597843ee2878d69826f0589ee984578b",
   "modules": {
     "app/ambient.js": {
       "referenceNormalizedSha256": "2f80566c6911893deb6b57bf16d41b83f4f43a01a3eff3cc7bccf1a5f68b1f0f",
-      "approvedNormalizedSha256": "2f80566c6911893deb6b57bf16d41b83f4f43a01a3eff3cc7bccf1a5f68b1f0f",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "c4b52d805785de390ff5418330c26d806f3be18613f9c4f29341e27b74c15d45",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "app/state.js": {
       "referenceNormalizedSha256": "6deecd722e099c8882eb2b4298226e9ebca0af109474e78adc73761feffb3743",
@@ -40,22 +40,12 @@
     },
     "main.js": {
       "referenceNormalizedSha256": "e78188235231de86858e83c045bf996228003bb56b1ff53c08a593052c62c967",
-      "approvedNormalizedSha256": "12832206d11b0825820e32c51f2ac763fdcf2b92c70b65db84ba5837c04e32f4",
-      "reason": "Repair static-scene autoplay, bounded history, finite inputs, capture state and native focused keyboard controls; preserve A-B-A and ambient scenes."
+      "approvedNormalizedSha256": "6190721a5aab0008943fb31eaa323a93ad5b05d2751baab724993cf5ea121e9c",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "models/ApplicationHero.js": {
       "referenceNormalizedSha256": "491bdb1dec379c716b6cf28165030cda3d71d1414648d5899102ff4027221f09",
       "approvedNormalizedSha256": "491bdb1dec379c716b6cf28165030cda3d71d1414648d5899102ff4027221f09",
-      "reason": "Unchanged from the historical upload."
-    },
-    "models/Capacitor.js": {
-      "referenceNormalizedSha256": "526e2f967ad38701899aef3b52510f1d431306b8af590066f43082b41d861321",
-      "approvedNormalizedSha256": "526e2f967ad38701899aef3b52510f1d431306b8af590066f43082b41d861321",
-      "reason": "Unchanged from the historical upload."
-    },
-    "models/CompositeCapacitor.js": {
-      "referenceNormalizedSha256": "663ede1fad438c1e7b147f0f4d39ea4ded0dbd64db131d75c6a9f07db974729d",
-      "approvedNormalizedSha256": "663ede1fad438c1e7b147f0f4d39ea4ded0dbd64db131d75c6a9f07db974729d",
       "reason": "Unchanged from the historical upload."
     },
     "models/Device.js": {
@@ -115,18 +105,18 @@
     },
     "scenes/copy.js": {
       "referenceNormalizedSha256": "af9b5d54568be22fc49559f92558d02c5729da985350ef09c230c8ca16655064",
-      "approvedNormalizedSha256": "af9b5d54568be22fc49559f92558d02c5729da985350ef09c230c8ca16655064",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "f0126ebc6fb9a0a216dab2abb6ae28e7ebd9b8865cdf8421bc741ea8f1e17479",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "scenes/definitions.js": {
       "referenceNormalizedSha256": "cff55635d0cfe205051665a8be909c7b91545282f01b24480bfefbd9ba18dcbc",
-      "approvedNormalizedSha256": "cff55635d0cfe205051665a8be909c7b91545282f01b24480bfefbd9ba18dcbc",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "c13ecd8890470a575dd2ba8caa83c60efc8b48811ce86d2e1bd1d565ce216e61",
+      "reason": "2026-10-23 English edition and redesign"
     },
     "ui/HUD.js": {
       "referenceNormalizedSha256": "761b19bc6065c9e54023a67c7cc200c05a06489832f937dbf014aa9384df15cf",
-      "approvedNormalizedSha256": "4219f94bddd3a9709904b4c80c9918706da01fc608062782650da8cea21707fb",
-      "reason": "Match immediate navigation behavior and correct accessible button label."
+      "approvedNormalizedSha256": "786bffeb50caad93481a24caa65da6221e1b7c16175b0498a5c3b302e7d41676",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "ui/Labels.js": {
       "referenceNormalizedSha256": "6cf194fedb2552ca7e94f2383f7938e6163610bc6524fb2499f70a294edd673f",
@@ -135,18 +125,18 @@
     },
     "ui/Plots.js": {
       "referenceNormalizedSha256": "cea4eecf03d099120db4ea05c644dc0161bfeceaaba4da544e16884cdc556bf1",
-      "approvedNormalizedSha256": "cea4eecf03d099120db4ea05c644dc0161bfeceaaba4da544e16884cdc556bf1",
-      "reason": "Unchanged from the historical upload."
-    },
-    "worlds/WorldManager.js": {
-      "referenceNormalizedSha256": "4894f31f75e43db98fe54463bd9bc9f1aa0e262e93107e859083529f9bd2bc3d",
-      "approvedNormalizedSha256": "4894f31f75e43db98fe54463bd9bc9f1aa0e262e93107e859083529f9bd2bc3d",
-      "reason": "Unchanged from the historical upload."
+      "approvedNormalizedSha256": "cc2a20e1ce28ec47f662289b24544ccb84ad54428f29e2d81ac5afca07941995",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     },
     "vendor/katex.js": {
       "referenceNormalizedSha256": "cf0dad858071356ce2d8ca59b02f32b8c44a936649758399e3184cd6b0950d46",
       "approvedNormalizedSha256": "cf0dad858071356ce2d8ca59b02f32b8c44a936649758399e3184cd6b0950d46",
       "reason": "Unchanged from the historical upload."
+    },
+    "worlds/WorldManager.js": {
+      "referenceNormalizedSha256": "4894f31f75e43db98fe54463bd9bc9f1aa0e262e93107e859083529f9bd2bc3d",
+      "approvedNormalizedSha256": "f6a67c394c9398a8196c0f976276a17e922f31112ab15f734eb41bcda47bc180",
+      "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
     }
   },
   "scientificFiles": {

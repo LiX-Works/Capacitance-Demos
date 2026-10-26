@@ -1,21 +1,63 @@
 import {ModelState,P} from '../physics/model.js';
+import {DATA} from '../physics/data.js';
 import {clamp,smooth,mix} from '../engine/math.js';
-export type ChartKind='theta'|'models'|'dielectric'|'er'|'validation'|'none';
-export interface Scene {id:string;part:1|2;title:string;body:string;formula:string;meaning:string;duration:number;theta:[number,number];er:number;chart:ChartKind;kind:'plates'|'wedge';defaultField:'lines'|'strength'|'potential';}
-const S=(id:string,part:1|2,title:string,body:string,formula:string,meaning:string,duration:number,theta:[number,number],er=1,chart:ChartKind='theta',kind:'plates'|'wedge'='plates',defaultField:'lines'|'strength'|'potential'='lines'):Scene=>({id,part,title,body,formula,meaning,duration,theta,er,chart,kind,defaultField});
+// 2026-10-23 English edition: one question carries the whole lab, the partial-dielectric pages are removed,
+// each page type has its own layout, and the text is slide-style: short phrases in large type.
+// Every number on a page is read from the frozen data, not typed in.
+export type ChartKind='theta'|'strip'|'models'|'validation'|'none';
+export type Layout='cover'|'stage'|'split'|'chart'|'closing';
+export type Visual='plain'|'hinge'|'strips'|'panels';
+export interface Scene {id:string;part:0|1|2|3;title:string;body:string;formula:string;meaning:string;duration:number;theta:[number,number];er:number;chart:ChartKind;kind:'plates'|'wedge';defaultField:'lines'|'strength'|'potential';layout:Layout;visual:Visual;fieldModes:boolean;extra:string;}
+const pF=(F:number)=>(F*1e12).toFixed(2);
+const air=DATA.curves['1'] as any[],first=air[0],last=air.at(-1);
+const share=Math.round(100*last.C_F/first.C_F);
+const stripLow=Math.round(100*(1-first.analytic.strip_F/first.C_F));
+const checks3d=(DATA.checks3d.rows as any[]).filter(r=>r.nl===Math.max(...DATA.checks3d.rows.map((x:any)=>x.nl)));
+const fvm=(theta:number)=>{const rows=(DATA.checksFVM.rows as any[]).filter(r=>r.theta_deg===theta&&r.er===1);return rows.reduce((a,b)=>b.h_m<a.h_m?b:a);};
+const pct=(x:number,d=1)=>(x>=0?'+':'−')+Math.abs(100*x).toFixed(d)+'%';
+const stat=(label:string,value:string,unit:string)=>`<div class="stat"><span>${label}</span><b>${value}<small>${unit}</small></b></div>`;
+const row=(a:string,b:string)=>`<tr><td>${a}</td><td>${b}</td></tr>`;
+const lines=(...xs:string[])=>`<ul class="points">${xs.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+export const NUMBERS={facing:pF(first.C_F),coplanar:pF(last.C_F),share,stripLow};
+const S=(s:Omit<Scene,'er'|'defaultField'|'fieldModes'|'extra'|'meaning'|'formula'>&Partial<Scene>):Scene=>({er:1,defaultField:'lines',fieldModes:false,extra:'',meaning:'',formula:'',...s});
 export const SCENES:Scene[]=[
-S('01',1,'展开电极，电容会怎样变化？',`两块有限电极，从平行状态连续展开到共面。<br><br>正对区域逐渐减小，电场向边缘与外部空间弯曲。<br><br><strong>没有正对面积，不等于没有电容。</strong><br><br>这里追踪同一套真实几何，而不是在两张示意图之间切换。`,String.raw`C=Q/\Delta V`,'电容读取的是导体之间的场耦合，不只是一块正对面积。',7,[0,180]),
-S('02',1,'固定转轴，决定最终间隙',`下电极固定。上电极只围绕宽度方向的固定轴旋转。<br><br>轴线位于 <strong>H = (−δ, D/2)</strong>。转动过程中不附加平移。<br><br>当 θ = 180°，上电极落到下电极左侧，且厚度范围完全共面。<br><br><strong>本例 δ = ${(P.hinge_offset_m*1000).toFixed(2)} mm，因此 g = ${(P.hinge_offset_m*2000).toFixed(2)} mm。</strong>`,String.raw`\begin{aligned}\mathbf p_\theta&=\mathbf H+R(\theta)(\mathbf p_0-\mathbf H)\\g&=2\delta\end{aligned}`,'间隙来自刚体坐标变换，不是动画中手调出来的距离。',5,[0,180]),
-S('03',1,'小角度：把局部电容相加',`先保留真实转轴，再做有意识的场近似：把重叠区分成沿 x 的窄条，每条主要沿竖直方向储能。<br><br>局部间距为 <strong>h(x) = h₀ + x tanθ</strong>。对实际投影重叠宽度 W 积分。<br><br>结果也可写成 <strong>C ≈ εbW / d<sub>log</sub></strong>。<br><br>斜率与开放边缘的影响被忽略，不能覆盖整个 0°–180°。`,String.raw`\begin{aligned}C_{\rm strip}&=\varepsilon b\int_0^W\!\frac{dx}{h_0+x\tan\theta}\\&=\frac{\varepsilon b}{\tan\theta}\ln\frac{h_1}{h_0}\end{aligned}`,'对数平均间距 d_log = (h₁ − h₀) / ln(h₁/h₀)，不是算术平均间距。',4.5,[0,12],1,'models'),
-S('04',1,'理想扇区：弯曲场线的解析例子',`换一个明确的理想问题：两条径向导体边界相差 α，内外圆弧边界绝缘。<br><br>电势只依赖极角，所以<strong>等势线沿半径，电场线沿圆弧</strong>。<br><br>半径越小，场越强。<br><br><strong>这是带绝缘径向边界的环形扇区，不是真实有限极板的精确替身。</strong>`,String.raw`\begin{aligned}E_\varphi&=-\frac{\Delta V}{\alpha r}\\C_{\rm sector}&=\frac{\varepsilon b}{\alpha}\ln\frac{r_1}{r_0}\end{aligned}`,'α 使用弧度；本例 α = 60°，r₀ = 5 mm，r₁ = 30 mm。',3.4,[60,60],1,'none','wedge'),
-S('05',1,'有限电极：在开放空间求解',`回到真实有限电极与 ${(P.electrode_thickness_m*1000).toFixed(2)} mm 厚度。<br><br><strong>边界元法</strong>在导体和介质边界上求电荷分布，采用无限空间 Green 函数，不另画一个封闭计算盒。<br><br>电极电势差为 ${P.voltage_difference_V.toFixed(2)} V，两端自由电荷等量反号。<br><br>二维结果是 <strong>C′，单位 F/m</strong>。乘一次真实宽度 b = ${P.width_m.toFixed(3)} m，才得到外推电容 C₂D。`,String.raw`C'=\frac{Q'}{\Delta V},\qquad C_{\rm 2D}=bC'`,'C₂D 是二维中部截面的按宽度外推值；有限宽度端部效应另行核查。',3,[25,45],1,'theta'),
-S('06',1,'角度扫描：近似在哪些地方偏离？',`蓝线是同一旋转几何上的二维数值解。虚线是局部条带与映射扇区候选近似。<br><br>它们共享真实参数，但采用了不同的场边界假设。<br><br>投影重叠消失后，局部条带近似不再适用；<strong>真实耦合仍存在</strong>。<br><br>末端曲线还有轻微回升。保留计算结果，不强行修成单调曲线。`,String.raw`e_{\rm model}=\frac{C_{\rm approx}-C_{\rm 2D}}{C_{\rm 2D}}`,'模型误差与离散误差不同。是否可用，取决于角度、容许误差与边界条件。',8,[0,180],1,'models'),
-S('07',2,'同一几何，加入有限介质',`在下电极上方保留一段固定介质：<br><br><strong>x = ${P.dielectric.x_start_m*1000}–${P.dielectric.x_end_m*1000} mm</strong><br>厚度 <strong>t = ${(P.dielectric.thickness_m*1000).toFixed(3)} mm</strong><br>底部空气隙 <strong>${(P.dielectric.y_bottom_m*1000).toFixed(3)} mm</strong><br>相对介电常数 <strong>εr = 4</strong><br><br>介质由截面外的定位夹具保持空气隙；夹具不在二维模型内。材料为无损线性参数，非样品认证值。<br><br>电极、转轴和驱动电压完全不变。`,String.raw`\varepsilon(x,y)=\begin{cases}\varepsilon_0\varepsilon_r,&\text{介质内}\\\varepsilon_0,&\text{空气中}\end{cases}`,'材料被显式放进同一个空间模型，不用一个整体倍率冒充局部介质。',3.5,[0,15],4,'dielectric'),
-S('08',2,'局部串联，得到电气厚度',`在介质覆盖的局部窄条中，空气与介质沿场方向串联。<br><br>总几何厚度仍为 h，但电气厚度变成：<br><strong>h<sub>el</sub> = h − t + t/εr</strong>。<br><br>介质以外仍为空气窄条，两部分再沿面积方向相加。<br><br>这仍是<strong>局部一维近似</strong>，不会自动计入介质侧边的场绕行。`,String.raw`\begin{aligned}C_{\rm diel,strip}\approx\varepsilon_0 b\Bigg[&\int_{\rm air}\frac{dx}{h(x)}\\+&\int_{\rm slab}\frac{dx}{h(x)-t(1-1/\varepsilon_r)}\Bigg]\end{aligned}`,'介质降低等效电气厚度；它的位置、边缘和真实场结构仍需二维求解。',4,[0,8],4,'dielectric'),
-S('09',2,'介质边缘，重新分配电场',`数值求解满足电势连续，以及介质边界的法向电位移连续。<br><br>介质内外的场不再只是一组互不影响的竖直窄条。<br><br>试着切换<strong>场线、电势与场强</strong>：色图和场线都来自实际计算数据。<br><br>棱边附近理想模型的局部场会很强，显示采样峰值不应被当作材料击穿预测。`,String.raw`\phi_1=\phi_2,\qquad \varepsilon_1 E_{n,1}=\varepsilon_2 E_{n,2}`,'场图使用 V 与 V/m；不是归一化装饰。角度节点之间的画面会明确标注插值。',5,[0,5],4,'dielectric','plates','strength'),
-S('10',2,'介电常数增加，电容怎样响应？',`固定在 θ = 0°，只改变介质相对介电常数。<br><br>每个实心节点对应一次独立边界元计算；动画切换这些已计算工况。<br><br>局部串联模型给出可解释的趋势，二维解保留开放边缘与材料边界的影响。<br><br><strong>εr → 1，必须回到空气模型。</strong>剩余空气层意味着介质增益并非无限。`,String.raw`h_{\rm el}=h-t+t/\varepsilon_r\;\longrightarrow\;h-t\quad(\varepsilon_r\to\infty)`,'这里扫描的是假定材料参数，不是通过动画“测得”了介电常数。',5,[0,0],4,'er'),
-S('11',2,'收敛，不等于消除了模型边界',`三层检查必须分开看：<br><br><strong>离散：</strong>128 → 192 长边面元，所测 C 变化小于 0.02%。<br><br><strong>独立方法：</strong>有限体积法检查网格、外域和电荷/能量一致性。<br><br><strong>有限宽度：</strong>空气 3D 检查点高于 C₂D，约 0°：23.650 pF（+1.20%）；90°：3.696 pF（+6.67%）；180°：3.306 pF（+7.55%）。<br><br>3D 仅做了这三个空气检查点；介质 3D 误差尚未量化。`,String.raw`\begin{aligned}C_{\rm 2D}&=bC'\\\delta_{\rm 3D}&=\frac{C_{\rm 3D}-C_{\rm 2D}}{C_{\rm 2D}}\end{aligned}`,'小线性残差证明离散方程被解好，不证明建模假设对所有真实器件都精确。',5,[0,180],1,'validation'),
-S('12',2,'让几何、模型与结果彼此一致',`<strong>几何先确定。</strong><br>纯旋转给出 g = 2δ，所有计算共享同一参数源。<br><br><strong>近似要有条件。</strong><br>局部条带解释趋势，理想扇区解释弯曲场，数值方法处理有限边缘与材料分布。<br><br><strong>绝对数值也要有边界。</strong><br>pF 是可信的计算量级，不是实测性能。<br><br>共面电极、接近检测与介质识别，都在读取场的重新分配。`,String.raw`\begin{gathered}\text{真实几何}\ \to\ \text{解析理解}\\\text{数值验证}\ \to\ \text{适用边界}\end{gathered}`,'有量纲的结果，也要有清楚的模型边界。',3,[150,180],4,'dielectric')
+S({id:'00',part:0,layout:'cover',visual:'plain',kind:'plates',chart:'theta',duration:7,theta:[0,180],
+ title:'Unfold two plates. What remains?',
+ body:lines(`Facing-area model: <strong>zero at 90°</strong>`,`Full solution: <strong>fringe coupling survives</strong>`),
+ extra:`<div class="stats">${stat('Facing · 0°',pF(first.C_F),'pF')}${stat('Side by side · 180°',pF(last.C_F),'pF')}${stat('Still there',String(share),'%')}</div>`,
+ meaning:'Air · simulated, not measured'}),
+S({id:'01',part:1,layout:'stage',visual:'hinge',kind:'plates',chart:'none',duration:5,theta:[0,180],
+ title:'One hinge, pure rotation',
+ body:lines('One fixed plate, one rotating plate',`Pivot: <strong>H = (−δ, D/2)</strong>`,`Coplanar gap: <strong>g = 2δ = ${(P.hinge_offset_m*2000).toFixed(0)} mm</strong>`),
+ formula:String.raw`\mathbf p_\theta=\mathbf H+R(\theta)(\mathbf p_0-\mathbf H)`,
+ meaning:'Full dimensions and parameters: Methods'}),
+S({id:'02',part:1,layout:'split',visual:'strips',kind:'plates',chart:'strip',duration:4.5,theta:[0,15],
+ title:'Small angles: thin slices',
+ body:lines('Thin parallel strips',`Growing gap: <strong>h(x) = h₀ + x tanθ</strong>`,`Misses edge fields: <strong>${stripLow}% low at 0°</strong>`),
+ formula:String.raw`C_{\rm strip}=\varepsilon b\int_0^W\!\frac{dx}{h_0+x\tan\theta}`}),
+S({id:'03',part:1,layout:'stage',visual:'plain',kind:'wedge',chart:'none',duration:3.4,theta:[60,60],
+ title:'Ideal sector: field lines as arcs',
+ body:lines(`Two radial conductors, angle α`,`Equipotentials = rays · <strong>field lines = arcs</strong>`,`Strongest at the apex: |<i>E</i>| ∝ 1/<i>r</i>`),
+ formula:String.raw`C_{\rm sector}=\frac{\varepsilon b}{\alpha}\ln\frac{r_1}{r_0}`,
+ meaning:`α = ${P.wedge.angle_deg}° · r₀ = ${P.wedge.inner_radius_m*1000} mm · r₁ = ${P.wedge.outer_radius_m*1000} mm`}),
+S({id:'04',part:2,layout:'stage',visual:'panels',kind:'plates',chart:'none',duration:7,theta:[0,180],fieldModes:true,
+ title:'Real plates, open space',
+ body:lines('<strong>Boundary element method</strong>','Surface charge in open space',`<strong>No artificial boundary box</strong>`),
+ formula:String.raw`C_{\rm 2D}=b\,\frac{Q'}{\Delta V}`,
+ meaning:'Computed field · 2-D solution scaled by width'}),
+S({id:'05',part:2,layout:'chart',visual:'plain',kind:'plates',chart:'models',duration:8,theta:[0,180],
+ title:'Where shortcuts break',
+ body:lines(`Shortcuts: <strong>zero at 90°</strong>`,'Full solution: nonzero beyond 90°',`<strong>${pF(last.C_F)} pF at 180°</strong>`),
+ formula:String.raw`e_{\rm model}=\frac{C_{\rm approx}-C_{\rm 2D}}{C_{\rm 2D}}`}),
+S({id:'06',part:2,layout:'chart',visual:'plain',kind:'plates',chart:'validation',duration:6,theta:[0,180],
+ title:'Can the numbers be trusted?',
+ body:'',
+ extra:`<table class="checks">${row('<span title="Panel refinement: 128 → 192">Panels</span>','< 0.02% change')}${row('<span title="Finite-volume solver">FVM</span>',`${pct(fvm(0).relative_to_bem,2)} · ${pct(fvm(180).relative_to_bem,1)}`)}${row('<span title="Finite-width three-dimensional calculation">3-D</span>',checks3d.map(r=>pct(r.relativeDifference)).join(' · '))}${row('Thin strip',`${pF(DATA.validation.cps_thin_F)} vs ${pF(last.C_F)} pF`)}</table>`,
+ meaning:'FVM: 0°, 180° · 3-D: 0°, 90°, 180°. Numerical checks.'}),
+S({id:'07',part:3,layout:'closing',visual:'plain',kind:'plates',chart:'none',duration:4,theta:[150,180],
+ title:'What survives the unfolding',
+ body:'',
+ extra:`<div class="takeaways"><section><b>${share}<small>%</small></b><p>survives side by side<br>${pF(last.C_F)} pF of fringe coupling</p></section><section><b>90<small>°</small></b><p>the strip model reaches zero<br>approximations have limits</p></section><section><b>4<small> checks</small></b><p>independent numerical checks<br>simulation, not measurement</p></section></div><a class="next-demo" href="../proxitouch/index.html">See fringe sensing: <strong>ProxiTouch</strong> →</a>`}),
 ];
-export function stateFor(scene:Scene,phase:number):ModelState{const t=clamp(phase),u=smooth(t),theta=mix(scene.theta[0],scene.theta[1],u);let er=scene.er;if(scene.id==='10'){const ers=[1,1.5,2,3,4,6,8];er=ers[Math.min(6,Math.floor(t*6.999))]}
- return{theta,er,phase:t,fullWidth:false,field:scene.defaultField,explore:false,section:true,stage:Math.min(3,Math.floor(t*3.001))};}
+export function stateFor(scene:Scene,phase:number):ModelState{const t=clamp(phase),u=smooth(t),theta=mix(scene.theta[0],scene.theta[1],u);
+ return{theta,er:scene.er,phase:t,fullWidth:false,field:scene.defaultField,explore:false,section:true,stage:Math.min(3,Math.floor(t*3.001))};}

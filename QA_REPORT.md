@@ -1,46 +1,36 @@
-# 修复后验证记录
+# Verification record
 
-2026-10-02 的本地验收已通过。仓库含一个合集首页和两个独立演示；浏览器、构建和有限科学抽验分别记录，避免互相替代。
+## 2026-10-26 · English presentation edition
 
-| 验证 | 结果 | 记录 |
+The current build retains the 12 ProxiTouch pages and 8 lab pages, with larger models, overlay panels, shorter copy and larger text. The original scientific inputs and historical uploaded HTML retain their exact hashes.
+
+- Offline builds, TypeScript checks, source/release contracts and behaviour regressions pass.
+- A new isolated Chrome run completed **235 checks with 0 failures**, including all 20 pages at three phases, English visible text, real URLs under `/Capacitance-Demos/`, key interactions and offline HTML navigation. No page exceptions or external runtime requests were observed. The software renderer checks function and layout, not hardware frame rate.
+- All 22 curated gallery images were freshly captured from the current runtime, and both overview montages and their hashes were refreshed. The deployed tree contains 63 working local links and about 26.5 MiB of content.
+- The 7 standard-library failure-safety tests passed. The optional numerical solver smoke test was not rerun because no scientific input changed; passing interface checks is not experimental validation.
+- Representative 1920×1080 and 1280×720 frames were inspected for legible type, model size and panel placement. Peripheral model overlap is intentional; text panels retain a light background.
+
+The current source and preview identities are recorded in [BUILD_MANIFEST.json](BUILD_MANIFEST.json). The earlier Chinese deployment receipt is preserved byte for byte under [qa/historical](qa/historical/2026-10-20-before-english/README.md). Live deployment verification is recorded separately from these local checks.
+
+## 2026-10-23 · English edition (local, not yet published)
+
+| Check | Result | Record |
 | --- | --- | --- |
-| 离线构建与 TypeScript 检查 | 两项目通过 | `npm run build`、`npm run check` |
-| 发布约束与科学输入 | 44 个模块逐一检查；6 份科学输入冻结；历史 HTML 保持原字节 | 各项目 `qa/source-sync.json`、`docs/RELEASE_CONTRACT.json` |
-| 交互状态回归 | ProxiTouch 9 组通过；互电容状态、曲线、几何池、捕获和输入回归通过 | 各项目 `source/tests/*regressions.mjs` |
-| 科学失败保护 | 7 个标准库测试通过，覆盖阶段失败、证据失配与写入回滚 | `physics/tests/test_safety.py` |
-| 实际浏览器 | 309 项通过，0 失败、0 页面异常、0 外部请求 | [browser-qa.json](qa/browser-qa.json) |
-| 有限科学抽验 | 8 个 BEM 工况、单位、编码和几何检查通过 | [scientific-smoke.json](qa/scientific-smoke.json) |
-| 无缓存重建 | 删除依赖／产物的独立副本重新构建、类型检查、测试通过；两套 HTML 哈希与交付一致 | [clean-build.json](qa/clean-build.json) |
-| 链接、图片和许可 | 67 个本地链接通过；24 张图库图片哈希匹配当前运行时；站点约 25.13 MiB | `npm run verify` |
+| Offline build and TypeScript check | Both projects pass | `npm run build`, `npm run check` |
+| Release contracts and scientific inputs | 27 + 15 modules approved by exact hash (20 and 9 unchanged from the historical upload); frozen scientific files match; historical HTML keeps its bytes | each project's `qa/source-sync.json`, `docs/RELEASE_CONTRACT.json` |
+| Behaviour regressions | ProxiTouch: 11 groups pass. Lab: page set and layouts, Explore round trip, native keys, loops, resumed playback, capture, finite API inputs, dimension geometry pool and sized charts pass | `source/tests/*regressions.mjs` |
+| Real browser | 235 checks, 0 failures, 0 page errors, 0 external requests | [browser-qa.json](qa/browser-qa.json) |
+| Previews | 12 + 10 gallery images re-rendered from the current build; overview hashes match | each project's `previews/manifest.json`, `qa/curated-preview-refresh.json` |
+| Links, images and notices | 63 local links pass; deployed site about 24.5 MiB | `npm run verify` |
 
-## 浏览器覆盖
+Browser coverage: isolated Chromium 156 with SwiftShader, no user browser data. Real HTTP navigation under the `/capacitance-demos/` sub-path, plus both stand-alone HTML files opened as `file://` with the network disabled. All 20 pages (12 + 8) are checked at phases 0, 0.5 and 1 for WebGL, maths and runtime errors, finite camera state, panels inside the viewport and English visible text. Interactions checked: one-step page interruption, the cover stage track, the live paragraph highlight on "One touch, two channels", focused menu and notes keys, the Explore round trip (ProxiTouch); the field-view loop and switch, the field switch hidden on other pages, the angle slider, the chart marker range, direct drag with Reset view (lab). The collection page is checked at desktop and 390 px mobile width; the 3-D demos at 1920×1080 and 1280×720.
 
-使用隔离 Chromium 143.0.7499.4 与 SwiftShader，不读取用户浏览器资料。真实 HTTP 导航采用 `/scientific-demos/` 仓库子路径；同时测试两个独立 HTML 在断网上下文中的 `file://` 打开。
+The browser QA no longer compares pixels with the historical upload: the pages changed on purpose. Passing these checks says nothing about the physics being right; the scientific inputs are guarded separately by file hash.
 
-35 个场景均在阶段 0、0.5、1 检查 WebGL、公式和运行时错误。每个场景最终阶段的科学三维画面与历史上传基准逐像素哈希相同，说明本次工程修复保留了原科学图形状态。它不证明模型物理正确。
+Not rerun in this pass: the optional scientific smoke test (`npm run test:science`), the safety test (`npm run test:safety`) and a clean-clone rebuild. No scientific input changed, so their earlier results below still describe the data. Firefox, Safari and mobile 3-D use remain outside the verified scope.
 
-浏览器还验证了中断翻页、原生聚焦按钮键盘操作、探索退出状态、场显示循环、介质曲线及数据点范围。合集首页覆盖桌面及 390 px 移动宽度；三维演示本次主要验证桌面 1920×1080 与代表性的 1280×720 尺寸。
+## 2026-10-02 · Earlier verification (historical)
 
-## 科学抽验范围
+The bug-fix pass of 2026-10-02 recorded: offline build and type checks for both projects; 44 modules checked against the release contract with 6 frozen scientific inputs; 7 standard-library safety tests; 309 browser checks with 0 failures, including pixel-identical final frames against the historical upload; a limited scientific smoke test of 8 BEM cases (0°, 30°, 90°, 180° × air / εr = 4, n = 128, largest relative difference about 5.1×10⁻¹⁵ against the frozen data); and a clean rebuild in an independent copy. `qa/scientific-smoke.json` and `qa/clean-build.json` keep those records.
 
-互电容选取 0°、30°、90°、180° × 空气／εr=4，共 8 个 n=128 BEM 工况与冻结数据比较，最大相对差约 5.107×10⁻¹⁵。相同 8 工况在完善几何核查时复跑一次，未扩大为完整再生。
-
-95 个电容节点的 `C=C′b`、183 张编码场图的长度／掩膜、参数与数据内容一致性均通过。ProxiTouch 的场数据 schema、7 个深度的接触面积与实际几何、半周旋转后的共面关系也通过。
-
-这是有限抽验，没有完整场线重算、完整数值管线再生成、实验性能验证或新的三维介质验证。原参数与预计算文件保持不变。
-
-## 环境与实际边界
-
-本地使用 Windows、Node.js 24.18.0、Python 3.12.14；科学环境 NumPy 2.3.5、SciPy 1.17.0、Shapely 2.1.2、Numba 0.65.1。预览来自实际 Chromium 浏览器渲染，软件渲染结果不构成实体 GPU 帧率认证。
-
-GitHub 的 Ubuntu 线上工作流已在 Node 22／Python 3.12 环境通过完整构建、类型和数据检查、7 项失败保护及 309 项浏览器检查，并成功部署 Pages。Firefox、Safari、移动端三维演示和完整物理重算仍不在本次通过范围内。
-
-## 2×2 预览布局更新
-
-概览选择与布局已更新。拼图使用已验证运行时的原始截图，未重新生成应用画面或改变科学内容。两个概览均为 2416×1366 PNG，包含四幅 1200×675 原比例画面及 16 px 间隔；文件尺寸、图片哈希和部署目录同步检查通过。应用运行时哈希保持不变，前述 309 项浏览器结果仍对应当前应用。完整 12 图图库和原九宫格均保留。
-
-## 已发布的线上版本
-
-仓库为 [LiX-Works/capacitance-demos](https://github.com/LiX-Works/capacitance-demos)，合集入口为 [电容 Demo](https://lix-works.github.io/Capacitance-Demos/)。[完整发布工作流](https://github.com/LiX-Works/capacitance-demos/actions/runs/37042722296)已成功。
-
-发布应用提交为 `5768eff46cc33e3fee4b4cc1d6d50f3ca9762304`。实际浏览器确认了首页、两个演示入口、翻页与场显示；7 个公开地址返回 HTTP 200，两套运行时 HTML 与两个 2×2 总览 PNG 的字节哈希匹配本地构建。首页等文本允许 Git 标准换行归一化，详见 [publication.json](qa/publication.json)。后续仅更新验证文档和源码清单，不改变部署应用。
+The collection was first published from application commit `5768eff46cc33e3fee4b4cc1d6d50f3ca9762304` at [Capacitance Demos](https://lix-works.github.io/Capacitance-Demos/); the 2026-10-20 commit `295bb9d` fixed the Pages links after the repository rename. See [publication.json](qa/publication.json). The English edition described above is local until it is committed and pushed.

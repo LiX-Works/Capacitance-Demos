@@ -1,7 +1,7 @@
-# Controls / current uploaded behavior
+# Controls / 2026-10-23 English edition
 
-Presentation: Right / Space / PageDown immediately interrupts the current animation and enters the next slide. Left / PageUp moves to the previous slide. R restarts; T toggles audience text; E enters/exits Explore; Escape exits Explore/modals; G opens the scene index; Home and End jump to the first/last scene. Finite animations ping-pong A-B-A by default. S05/S07/S18 keep their independent ambient loop; S00 remains the uploaded static cover. P retains the uploaded whole-presentation mode, separate from per-slide loops. The separate full-auto path and every long-running combination are not certified by the synchronization smoke test.
+Presentation: Right / Space / PageDown immediately interrupts the current animation and goes to the next page. Left / PageUp goes back. R restarts; T toggles the notes; E enters or leaves Explore; Escape closes Explore and dialogs; G opens the contents; Home and End jump to the cover and the last page. Finite animations ping-pong A-B-A. The cover now loops the full approach → touch → press interaction; S18 keeps its own ambient multiplexing loop. P runs the whole presentation automatically, separate from the per-page loops.
 
-Explore: V / F / M / N / S / X select device, field, micro, nano, signal and exploded views. The depth slider shares one model state. Drag to orbit; wheel to zoom; A toggles the original interaction sweep. Quality choices and the optical/physics model are unchanged.
+Explore: V / F / M / N / S / X select the device, field, microstructure, EDL interface, two-channel signal and exploded views. The depth slider drives one shared model state. Drag to orbit, wheel to zoom; A toggles the automatic approach-and-press sweep. Quality choices and the physical models are unchanged.
 
-The current HTML was the behavioral authority. This handoff did not redesign navigation or correct unrelated model/UI behavior. Original keyboard strings inside the application are retained exactly apart from homepage privacy removal.
+Scene ids keep the original numbers (S00, S08 … S22) so the code stays traceable to the reference upload; the page counter numbers pages by position (Cover, 01 … 11).

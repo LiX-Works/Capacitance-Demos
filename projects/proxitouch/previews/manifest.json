@@ -1,150 +1,150 @@
 {
-  "runtimeSha256": "777d29996d08f9a9fc108cf2d27aae04da5b9d73da1ade069461d80e53b3b68c",
+  "runtimeSha256": "1917cd39f751db9b2c4b71f48f02f30aaba085e604c3b1e4ab2b6eb70618e1ca",
   "count": 12,
   "images": [
     {
       "file": "01-cover.png",
-      "title": "ProxiTouch 封面",
+      "title": "Cover: approach, touch and pressure in one loop",
       "scene": "S00",
-      "phase": 1,
+      "phase": 0.55,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "f5ee12f8be1c34048e82aa8dbd598730c31bba1812655bc37839980bdc9db3da",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "d2d4d23aef883e1464f9cb22deb0f5ef636bd7a27d4f591f91f5f427d120e5d4",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "02-materials.png",
-      "title": "多材料串并联",
-      "scene": "S05",
-      "phase": 1,
-      "field": null,
-      "ambientSeconds": 6.8,
-      "width": 1920,
-      "height": 1080,
-      "sha256": "975cb0b0c314ed55720a4e3cb09faf83fe4e063386008d4403c2f20686f508da",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
-    },
-    {
-      "file": "03-fringing-field.png",
-      "title": "接近目标与边缘场",
+      "file": "02-fringe-field.png",
+      "title": "Proximity: the fringe field reaches into the air",
       "scene": "S08",
-      "phase": 0.65,
+      "phase": 0.85,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "424c30cfca891de4a12c57b428cddf8d0729380c8be4448243559cd5fe1530c9",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "715fe0169aabbfa15254385fd6846d624d07c93bfb10f88dfd253d29daed480e",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "04-ionic-interface.png",
-      "title": "电双层界面",
+      "file": "03-ionic-interface.png",
+      "title": "Pressure: an electric double layer",
       "scene": "S09",
       "phase": 1,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "a3b3313804e1a110a9b2cdbe6bb6979e5136a5833d3e78fce8cd8b2282b3ebf4",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "cd3ca25f21362883c2c69269985f06329e545aaeee4c423d05bbf8ebb184bee9",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "05-two-interfaces.png",
-      "title": "两个 EDL 与体相屏蔽",
-      "scene": "S10",
-      "phase": 1,
-      "field": null,
-      "ambientSeconds": 0,
-      "width": 1920,
-      "height": 1080,
-      "sha256": "ae93e364459d0f0c33239ac8a986b4385f12847d3d46ba5bafdf7783f73f25f3",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
-    },
-    {
-      "file": "06-contact-area.png",
-      "title": "有效接触面积",
+      "file": "04-contact-area.png",
+      "title": "Pressing grows the contact area",
       "scene": "S11",
       "phase": 1,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "9243318f491c1150c8fdafdefd6b98156cf2eac10ee777c95ce47af9f82a3e21",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "d26700391cfc37a171485ccf24dd4da3b93cfa27177fc570e037211cd931c7af",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "07-shared-electrodes.png",
-      "title": "共享电极分层结构",
+      "file": "05-shared-electrode.png",
+      "title": "One shared electrode",
+      "scene": "S13",
+      "phase": 1,
+      "field": null,
+      "ambientSeconds": 0,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "7f10f505786f18201b15daff0694d832a5869c74746c396042416758fb6dfc03",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
+    },
+    {
+      "file": "06-pixel-structure.png",
+      "title": "Inside one pixel",
       "scene": "S14",
       "phase": 1,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "218fd290f4cb9f8873511aaa470d85d194a00d6fcf27728533af8e3e33dfa914",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "c781d5bb0c4969f571aa51c833bd040cdcaa407d25a8bc6647d347ef59b48a8f",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "08-dual-signals.png",
-      "title": "双通道与连续交互",
+      "file": "07-two-channels.png",
+      "title": "One touch, two channels",
       "scene": "S19",
-      "phase": 0.83,
+      "phase": 0.7,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "a915a8f1ce0bf2a4aae85001b7b4fdeab1fd5baba0cce2e900a6ed09f7e2a0b2",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "6d5a64036dae65b8b78d45148a568b439953259322fc61b7ba23d5d325e5ff2d",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "09-addressable-array.png",
-      "title": "可寻址共享边界阵列",
+      "file": "08-multiplexing.png",
+      "title": "Taking turns on the shared electrode",
+      "scene": "S18",
+      "phase": 0,
+      "field": null,
+      "ambientSeconds": 6.8,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "88cb3cf921644cf7b1b7697defe2f0ab7c55ef9529322fe53da349488206be0c",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
+    },
+    {
+      "file": "09-shared-frame-array.png",
+      "title": "Shared-frame array",
       "scene": "S20",
       "phase": 1,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "e66c9a73813b69e987f1185cd05f4ee8955c76f2f86814ee45e51d55bf097c24",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "02ff7d26f945fa3565f9276aea10ffa89370989ef3d3ef0dfba7014be8075422",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
-      "file": "10-egg-grasp.png",
-      "title": "夹鸡蛋应用概念",
+      "file": "10-sensing-surface.png",
+      "title": "A sensing surface",
+      "scene": "S21",
+      "phase": 1,
+      "field": null,
+      "ambientSeconds": 0,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "b794e45332913b60c8ac60a97fe6ff66e1a6b845a9a14f01892898e41f2fba38",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
+    },
+    {
+      "file": "11-egg-grasp.png",
+      "title": "Application concept: grasping an egg",
       "scene": "S22",
       "phase": 1,
       "field": null,
       "ambientSeconds": 0,
       "width": 1920,
       "height": 1080,
-      "sha256": "1c91c31dcb17245b58ae343cdf191ac65eb377a02ef414a10d1cd5fc99557c13",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
-    },
-    {
-      "file": "11-shared-pixel-hero.png",
-      "title": "共享中央电极 Hero",
-      "scene": "S13",
-      "phase": 1,
-      "field": null,
-      "ambientSeconds": null,
-      "width": 1920,
-      "height": 1080,
-      "sha256": "f83d6123150a089349631268ad7290d5cbc6eb31ae71f63e1f8bd3bfafa4ffd1",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "1bf7be8fc543b43f3849f141feca8b7c927e97b9e73140194ccda472f3e237e6",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     },
     {
       "file": "hero-2560.png",
-      "title": "夹持应用 / 2560×1440",
-      "scene": "S22",
-      "phase": 1,
+      "title": "Cover at 2560 × 1440",
+      "scene": "S00",
+      "phase": 0.55,
       "field": null,
-      "ambientSeconds": null,
+      "ambientSeconds": 0,
       "width": 2560,
       "height": 1440,
-      "sha256": "d576d52fb1d56f68acbd6699333a8249bb56d75decc671a2917df0dbeae1a65a",
-      "source": "Actual Chromium WebGL2 render of rebuilt, privacy-cleaned final upload"
+      "sha256": "034868eb5c3a0e7eda03e4a00415a44f07a7ae3744ae6bce16f2658c87c34186",
+      "source": "Actual Chromium WebGL2 render of the 2026-10-23 English edition"
     }
   ],
   "overview": {
@@ -154,14 +154,14 @@
     "cellHeight": 675,
     "gutter": 16,
     "images": [
-      "04-ionic-interface.png",
-      "06-contact-area.png",
-      "08-dual-signals.png",
-      "10-egg-grasp.png"
+      "01-cover.png",
+      "02-fringe-field.png",
+      "07-two-channels.png",
+      "11-egg-grasp.png"
     ],
     "file": "overview.png",
     "width": 2416,
     "height": 1366,
-    "sha256": "1c94804a78a548cb79c1c22e42234334ff76e4a9a6133e01854e52ca3df5cf2f"
+    "sha256": "71cba670c1b5ba3e2c0277c31fc323151d2d0230127b25c268a96ec4c11d9bbc"
   }
 }

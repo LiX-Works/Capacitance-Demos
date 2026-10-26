@@ -15,14 +15,16 @@ function load(file){
  return module.exports;
 }
 const {ProxiTouchApp,finitePhase}=load(path.join(source,'main.ts'));
-const {SCENES}=load(path.join(source,'scenes/definitions.ts'));
+const {SCENES,pageNumber}=load(path.join(source,'scenes/definitions.ts'));
 const {AmbientClock,AMBIENT_SCENES}=load(path.join(source,'app/ambient.ts'));
 const {HUD}=load(path.join(source,'ui/HUD.ts'));
-const originals={window:globalThis.window,requestAnimationFrame:globalThis.requestAnimationFrame,clearTimeout:globalThis.clearTimeout};
+const {interaction}=load(path.join(source,'physics/interaction.ts'));
+const originals={window:globalThis.window,requestAnimationFrame:globalThis.requestAnimationFrame,clearTimeout:globalThis.clearTimeout,__vendorMath:globalThis.__vendorMath};
 let timerId=0;const timers=new Map();
 globalThis.window={setTimeout:fn=>{timers.set(++timerId,fn);return timerId;}};
 globalThis.clearTimeout=id=>timers.delete(id);
 globalThis.requestAnimationFrame=()=>0;
+globalThis.__vendorMath={renderToString:s=>`<math>${s}</math>`};
 function app(id='S00'){
  const a=Object.assign(Object.create(ProxiTouchApp.prototype),{index:SCENES.findIndex(s=>s.id===id),phase:0,loopDirection:1,capture:false,captureAmbient:0,explore:false,auto:false,fullAuto:false,autoTimer:0,history:[],ambient:new AmbientClock(),dirty:false,lastStamp:0,frameIntervals:[],draws:0,notes:true});
  a.draw=()=>{a.draws++;a.dirty=false;};
@@ -33,52 +35,70 @@ function advanceTimer(a){const fn=timers.get(a.autoTimer);assert(fn,'Autoplay dw
 const records=[];
 function check(name,fn){fn();records.push(name);console.log('PASS',name);}
 try{
+ check('English edition keeps the cover plus eleven pages, in story order',()=>{
+  assert.deepEqual(SCENES.map(s=>s.id),['S00','S08','S09','S11','S12','S13','S14','S19','S18','S20','S21','S22']);
+  assert.equal(SCENES[0].layout,'hero');assert.equal(SCENES[0].world,'signals');assert(SCENES[0].duration>0,'cover animates');
+  assert.equal(pageNumber('S19'),'07');assert.equal(pageNumber('S22'),'11');
+  for(const s of SCENES)assert(!/[一-鿿]/.test(s.title+s.body),`${s.id} copy is English`);
+ });
  check('Autoplay crosses every finite and zero-duration scene and stops at the ending',()=>{
   const a=app();a.playAll();let steps=0;
   while(a.fullAuto&&steps++<100){if(a.animation)a.tick(a.animation.start+a.animation.duration+1);else advanceTimer(a);}
   assert.equal(a.fullAuto,false);assert.equal(a.def.id,'S22');assert(steps<100);
-  for(const id of ['S05','S07','S18'])assert(a.history.some(h=>h.scene===id));
+  for(const id of ['S00','S18','S19'])assert(a.history.some(h=>h.scene===id));
  });
  check('Manual Next interrupts once and cancels a pending autoplay dwell',()=>{
-  const a=app('S04');a.fullAuto=true;a.next(false);assert.equal(a.def.id,'S05');assert(timers.has(a.autoTimer));
-  a.next();assert.equal(a.def.id,'S06');assert.equal(a.fullAuto,false);assert(!timers.has(a.autoTimer));
+  // S18 is the zero-duration (ambient) page, so arriving there under autoplay schedules a dwell timer.
+  const a=app('S19');a.fullAuto=true;a.next(false);assert.equal(a.def.id,'S18');assert(timers.has(a.autoTimer));
+  a.next();assert.equal(a.def.id,'S20');assert.equal(a.fullAuto,false);assert(!timers.has(a.autoTimer));
  });
  check('Finite presentation scenes still follow A-B-A ping-pong',()=>{
-  const a=app('S04');assert(a.def.duration>0);a.startPresentationLoop();a.tick(a.animation.start+a.animation.duration+1);
+  const a=app('S12');assert(a.def.duration>0);a.startPresentationLoop();a.tick(a.animation.start+a.animation.duration+1);
   assert.equal(a.phase,1);assert.equal(a.animation.to,0);a.tick(a.animation.start+a.animation.duration+1);
   assert.equal(a.phase,0);assert.equal(a.animation.to,1);
  });
  check('Ambient ownership, captured time and explore pause remain independent of phase',()=>{
-  assert.deepEqual([...AMBIENT_SCENES],['S05','S07','S18']);const c=new AmbientClock();
-  assert.equal(c.sample('S05',1000),0);assert.equal(c.sample('S05',2000),1);
-  assert.equal(c.sample('S05',3000,true,4),4);assert.equal(c.sample('S05',4000,false,0,true),0);
-  assert.equal(c.sample('S05',5000),1);assert.equal(c.sample('S04',6000),0);
+  assert.deepEqual([...AMBIENT_SCENES],['S18']);const c=new AmbientClock();
+  assert.equal(c.sample('S18',1000),0);assert.equal(c.sample('S18',2000),1);
+  assert.equal(c.sample('S18',3000,true,4),4);assert.equal(c.sample('S18',4000,false,0,true),0);
+  assert.equal(c.sample('S18',5000),1);assert.equal(c.sample('S12',6000),0);
  });
  check('Invalid query and public phase/depth/time inputs never poison state',()=>{
   assert.equal(finitePhase(Number('invalid')),1);assert.equal(finitePhase(Infinity),1);assert.equal(finitePhase(-2),0);assert.equal(finitePhase(2),1);
-  const a=app('S04');a.capture=true;a.goTo('S04',NaN);assert.equal(a.phase,1);
+  const a=app('S12');a.capture=true;a.goTo('S12',NaN);assert.equal(a.phase,1);
   a.phase=.4;a.seek(NaN);a.seek(Infinity);assert.equal(a.phase,.4);a.seek(3);assert.equal(a.phase,1);
   a.depth=.3;a.setDepth(NaN);a.setDepth(Infinity);assert.equal(a.depth,.3);assert.equal(a.explore,false);
   a.setDepth(2);assert.equal(a.depth,1);a.setDepth(-2);assert.equal(a.depth,-1);
   a.captureAmbient=2;a.setAmbientTime(NaN);a.setAmbientTime(Infinity);assert.equal(a.captureAmbient,2);a.setAmbientTime(-4);assert.equal(a.captureAmbient,0);
  });
  check('Capture cancels existing animation and autoplay and remains stable across ticks',()=>{
-  const a=app('S04');a.playAll();a.scheduleAdvance();a.auto=true;a.setCaptureMode(true);
+  const a=app('S12');a.playAll();a.scheduleAdvance();a.auto=true;a.setCaptureMode(true);
   assert.equal(a.animation,undefined);assert.equal(a.fullAuto,false);assert.equal(a.auto,false);assert(!timers.has(a.autoTimer));
   const phase=a.phase;a.tick(performance.now()+100000);a.playAll();assert.equal(a.phase,phase);assert.equal(a.animation,undefined);assert.equal(a.fullAuto,false);
  });
  check('Native focused controls keep their keys and editable content keeps global shortcuts',()=>{
-  const a=app('S04');let next=0,escaped=0;a.next=()=>next++;a.hud={closeModals:()=>escaped++};
+  const a=app('S12');let next=0,escaped=0;a.next=()=>next++;a.hud={closeModals:()=>escaped++};
   function key(k,selector=null,editable=false){let prevented=false;a.key({key:k,target:{isContentEditable:editable,closest:()=>selector},preventDefault:()=>prevented=true});return prevented;}
   assert.equal(key(' ','button'),false);assert.equal(key('ArrowRight','input'),false);assert.equal(key('r','textarea'),false);assert.equal(key('e',null,true),false);assert.equal(next,0);
   assert.equal(key(' '),true);assert.equal(next,1);assert.equal(key('Escape','input'),true);assert.equal(escaped,1);
  });
- check('Navigation hint and accessible button label agree with one-step interruption',()=>{
-  const nodes=new Map();const node=()=>({textContent:'',attributes:{},classList:{toggle(){},remove(){}},setAttribute(k,v){this.attributes[k]=v;}});
+ const stubHUD=(id)=>{
+  const nodes=new Map();const node=()=>({textContent:'',attributes:{},style:{},classList:{toggle(){},remove(){}},setAttribute(k,v){this.attributes[k]=v;},querySelectorAll:()=>[],querySelector:()=>node()});
   const root={dataset:{},classList:{toggle(){}},querySelector:k=>{if(!nodes.has(k))nodes.set(k,node());return nodes.get(k);},querySelectorAll:()=>[]};
-  const h=Object.assign(Object.create(HUD.prototype),{root,last:'S04,false,device',body:node(),panel:node(),plots:{update(){}}});
-  h.prepare(SCENES.find(s=>s.id==='S04'),{phase:.2},{explore:false,view:'device',notes:true,capture:false,playing:true,sceneIndex:4});
-  assert.equal(root.querySelector('#next-button').textContent,'下一页 →');assert.equal(root.querySelector('#next-button').attributes['aria-label'],'中断当前动画并进入下一页');assert.equal(root.querySelector('.navigation-hint').textContent,'→ 中断当前动画并翻页');
+  return Object.assign(Object.create(HUD.prototype),{root,last:`${id},false,device`,body:node(),panel:node(),track:node(),plots:{update(){}},mathCache:new Map()});
+ };
+ check('Navigation hint and accessible button label agree with one-step interruption',()=>{
+  const h=stubHUD('S12');
+  h.prepare(SCENES.find(s=>s.id==='S12'),{phase:.2,ambientTime:0,interaction:interaction(-1)},{explore:false,view:'device',notes:true,capture:false,playing:true,sceneIndex:4});
+  const q=k=>h.root.querySelector(k);
+  assert.equal(q('#next-button').textContent,'Next →');assert.equal(q('#next-button').attributes['aria-label'],'Stop the animation and go to the next page');assert.equal(q('.navigation-hint').textContent,'→ skips the animation and turns the page');assert.equal(q('.page-position').textContent,'04 / 11');
+  const c=stubHUD('S00');c.prepare(SCENES[0],{phase:.2,ambientTime:0,interaction:interaction(-1)},{explore:false,view:'device',notes:true,capture:false,playing:false,sceneIndex:0});
+  assert.equal(c.root.querySelector('#next-button').textContent,'Start →');assert.equal(c.root.querySelector('.page-position').textContent,'Cover');
+ });
+ check('S19 copy marks one paragraph per stage for live highlighting',()=>{
+  const h=stubHUD('S19'),html=h.markdown(SCENES.find(s=>s.id==='S19').body);
+  for(const stage of ['approach','touch','pressure'])assert.equal((html.match(new RegExp(`data-stage="${stage}"`,'g'))||[]).length,1,stage);
+  assert.equal(interaction(-.5).stage,'approach');assert.equal(interaction(.05).stage,'touch');assert.equal(interaction(.6).stage,'pressure');
  });
  check('Presentation history retains only the latest 256 entries',()=>{
   const a=app();for(let i=0;i<300;i++){a.phase=i/300;a.record();}assert.equal(a.history.length,256);assert.equal(a.history[0].phase,44/300);assert.equal(a.history.at(-1).phase,299/300);
@@ -87,4 +107,3 @@ try{
 }finally{
  for(const [key,value] of Object.entries(originals)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}
 }
-

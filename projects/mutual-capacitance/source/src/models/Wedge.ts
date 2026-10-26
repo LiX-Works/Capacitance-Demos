@@ -13,6 +13,6 @@ export class Wedge extends Node{
  const bounds:Vec3[][]=[];for(const r of[r0,r1])for(const z of[-sectionWidth/2,sectionWidth/2])bounds.push(Array.from({length:65},(_,j)=>point(r*Math.cos(alpha*j/64),r*Math.sin(alpha*j/64),z)));const bg=new TubeGeometry(4,65,4);bg.update(bounds,.007);this.boundaries=mesh(this,bg,new Material(0x7c939f,{opacity:.36,roughness:1}));this.boundaries.castShadow=false;
  }
  set(phase:number){this.arcs.material.opacity=.32+.53*Math.min(1,phase*2);this.rays.material.opacity=.25+.33*Math.max(0,(phase-.3)/.7);}
- annotations():Annotation[]{const w=P.wedge;return[{title:'弯曲的电场线',detail:'同心圆弧；|E| ∝ 1/r',point:point(.018,.010,sectionWidth/2),offset:[40,-65]},{title:'等势线',detail:'径向直线',point:point(.017,.006,0),offset:[60,60]},{title:'绝缘径向边界',detail:'r₀ = 5 mm，r₁ = 30 mm',point:point(.028,.009,sectionWidth/2),offset:[75,20]}]}
+ annotations():Annotation[]{const w=P.wedge;return[{title:'Curved field lines',detail:'concentric arcs · |E| ∝ 1/r',point:point(.018,.010,sectionWidth/2),offset:[40,-65]},{title:'Equipotentials',detail:'radial rays',point:point(.017,.006,0),offset:[60,60]},{title:'Insulating arc boundaries',detail:'r₀ = 5 mm, r₁ = 30 mm',point:point(.028,.009,sectionWidth/2),offset:[75,20]}]}
  bounds(){const w=P.wedge,a=w.angle_deg*Math.PI/180;const p:Vec3[]=[];for(const r of[w.inner_radius_m,w.outer_radius_m])for(const t of[0,a])for(const z of[-sectionWidth/2,sectionWidth/2])p.push(point(r*Math.cos(t),r*Math.sin(t),z));return p;}
 }

@@ -1,6 +1,6 @@
 {
   "referenceSha256": "57bcbde1c450ec948f227ed2e8ae8b6d115282d0c441142cb7bb4e9e809d9b9e",
-  "builtSha256": "c9e67fa0080b752f0613c608b2d00e2048db8dd798ba00d11b8e981166b8cd28",
+  "builtSha256": "d08c00b69ef848db0ab1ec3b311257f8ff7354cd4e3a1619a78737dfd2d0f755",
   "moduleCount": 15,
   "records": [
     {
@@ -58,21 +58,21 @@
       "name": "Approved module: main.js",
       "passed": true,
       "details": {
-        "reason": "Restore exploration state and playback, retain native focused controls, bound telemetry history."
+        "reason": "2026-10-23 English edition and redesign"
       }
     },
     {
       "name": "Approved module: models/Experiment.js",
       "passed": true,
       "details": {
-        "reason": "Reuse dimension-line geometry to avoid orphaned GPU allocations."
+        "reason": "2026-10-23 English edition and redesign"
       }
     },
     {
       "name": "Approved module: models/Wedge.js",
       "passed": true,
       "details": {
-        "reason": "Unchanged from the historical upload."
+        "reason": "2026-10-23 English edition and redesign"
       }
     },
     {
@@ -93,28 +93,28 @@
       "name": "Approved module: scenes/definitions.js",
       "passed": true,
       "details": {
-        "reason": "Unchanged from the historical upload."
+        "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
       }
     },
     {
       "name": "Approved module: ui/Chart.js",
       "passed": true,
       "details": {
-        "reason": "Show selected material curves/approximations and keep all current values in the chart."
+        "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
       }
     },
     {
       "name": "Approved module: ui/HUD.js",
       "passed": true,
       "details": {
-        "reason": "Unchanged from the historical upload."
+        "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
       }
     },
     {
       "name": "Approved module: ui/Labels.js",
       "passed": true,
       "details": {
-        "reason": "Unchanged from the historical upload."
+        "reason": "2026-10-25 presentation readability: larger model and type, concise English copy, overlay panels; scientific inputs unchanged"
       }
     },
     {

@@ -1,40 +1,77 @@
-# 修复与合集整理
+# Changes and collection history
 
-## 2026-10-02
+## 2026-10-26 · Larger presentation and English publication preparation
 
-两套演示整合为一个 Scientific Demos 仓库，保留独立源码、科学数据与历史资料。增加合集首页和统一 Pages 工作流。
+- Enlarged models across a wider stage, with white/translucent copy and plot cards allowed to overlap the model.
+- Raised the ProxiTouch presentation body to about 30 px and headings to about 60 px at 1920×1080; enlarged plot labels in their actual rendered dimensions.
+- Shortened slide text, removed repeated fine print from the main view and retained scientific qualifications in About/Methods and concise concept labels.
+- Applied the same readable type and larger framing to the lab, shortened readouts and made its closing cross-demo link work as an explicit offline HTML path.
+- Refreshed every current preview from the built applications and updated scene exports and release fingerprints. Original uploads, scientific parameters and precomputed data remain unchanged.
+- Preserved earlier publication manifests in `qa/historical/2026-10-20-before-english/`. The GitHub description and the prepared English/Chinese root READMEs were left unchanged.
+
+## 2026-10-23 · English edition and redesign
+
+Both demos, the collection page, the galleries and the documentation are now in English. The original Chinese uploads stay byte-for-byte in each project's `reference/final-upload.html`; a Chinese collection README is kept as `README.zh-CN.md`. Frozen scientific parameters and precomputed data are unchanged.
+
+### ProxiTouch (23 slides → cover + 11 pages)
+
+- The cover now runs the whole idea in one loop: a target approaches, touches and presses the pixel while a live stage track and two channel bars follow the interaction.
+- The capacitor basics (C = εA/d, the three variables, series/parallel, composite capacitors) merged into three mechanism pages: the fringe field (unfold the plates, then bring in the target), the electric double layer (why squeezing the gel barely changes C) and the contact area.
+- The three single-stage pages (approach, touch, pressure) folded into "One touch, two channels"; its three paragraphs light up in step with the animation and the two channel plots.
+- Order: mechanisms → the question → shared electrode → pixel layers → two channels → multiplexing → array → surface → egg grasp. Scene ids keep their original numbers; pages are numbered by position.
+- The unused parallel-plate and composite-capacitor models and their worlds were removed. English font stack; all labels, plots, menus, Explore and About text translated.
+
+### Mutual-Capacitance Lab (12 slides → 8 pages)
+
+- One question carries the lab: unfold two plates from facing to side by side; how much capacitance is left? Answer from the data: 23.37 pF → 3.07 pF, 13% survives.
+- The partial-dielectric pages (07–10) and the dielectric toggle were removed: a flat slab under a rotating plate did not fit the unfolding geometry. The εr = 4 data stay in the data file for provenance.
+- Five layouts replace one repeated template: cover, stage (large model), split (model beside a square chart), chart-first (the chart is the subject, the model becomes an angle thumbnail) and closing (three takeaways and a link to ProxiTouch).
+- Charts are drawn at the container's real pixel size instead of a stretched 1450×235 strip. New charts: the strip model against the solution at small angles with the missing fringe shaded; the full sweep with an error panel; the validation chart with 3-D, finite-volume and thin-strip checks as deviations from 2-D BEM.
+- Fewer, clearer controls: an angle slider with play/pause, one view switch on the field page only, and Previous/Next. The model turns by direct drag with a Reset view button; Explore, full width and quality remain on the keyboard (listed under Methods). Preset-angle, log-axis, replay and autoplay buttons were removed from the screen.
+- Every number on a page is read from the frozen data, not typed in. A new "thin coplanar strips" check compares the conformal-mapping limit (3.00 pF) with the 0.1 mm-thick result (3.07 pF).
+
+### Collection, tests and docs
+
+- Collection page, galleries, preview READMEs, project READMEs, CONTROLS, SCENE_COPY / SCENE_MANIFEST (re-exported from the build), DEPLOY and QA notes are in English.
+- Previews re-rendered from the new build with new manifests (12 and 10 images); overviews show four representative pages each.
+- Release contracts re-approved against the new build: changed and new modules are marked, unchanged modules still match the historical upload, scientific inputs are still checked by file hash. `source-sync.mjs` accepts modules that have no counterpart in the historical upload.
+- Regression tests and `scripts/browser_qa.py` were rewritten for the new page sets. The browser QA no longer compares pixels with the historical upload (the pages changed on purpose); it checks every page at three phases for errors, overflow and English text, plus the key interactions and offline files.
+
+## 2026-10-02 · Collection bug fixes
+
+The two demos were merged into one Scientific Demos repository, keeping separate source, scientific data and history, with a collection page and one Pages workflow.
 
 ### ProxiTouch
 
-- 自动演示经过零时长的静态／环境动画场景后继续前进，直到结束场景；手动翻页取消待执行的自动翻页。
-- 翻页按钮、提示和 aria 标签统一为一次操作直接中断并进入下一页。
-- 聚焦按钮、链接及输入时保留原生键盘行为；全局快捷键不抢占控件操作。
-- 捕获模式停止已有动画与自动翻页，拒绝非有限阶段、深度和时间输入。
-- 历史记录最多保留 256 条，避免长时间播放无限增长。
-- 物理文档指向实际 `ApplicationHero.ts`；新生成场数据的运行耗时写到 QA，科学数组不混入计时信息。既有科学表保留原字节。
+- Autoplay continues through zero-duration and ambient scenes to the ending; manual paging cancels a pending autoplay step.
+- Page buttons, hints and aria labels agree: one action interrupts the animation and turns the page.
+- Focused buttons, links and inputs keep their native keyboard behaviour; global shortcuts no longer take over controls.
+- Capture mode stops running animations and autoplay and rejects non-finite phase, depth and time inputs.
+- History keeps at most 256 entries, so long sessions do not grow without bound.
+- The physics notes point to the actual `ApplicationHero.ts`; solver run time goes to QA files, not into scientific tables. Existing scientific tables keep their bytes.
 
-### 互电容建模实验室
+### Mutual-capacitance lab
 
-- Windows 动态导入转换为 file URL，原始 JSON 与内嵌数据检查能完成。
-- 退出探索后恢复摄像机、阶段、材料、场显示循环、播放与连播状态；聚焦控件保留原生键盘操作。
-- 材料切换后图表显示对应数值曲线，解析近似采用当前介电常数，纵轴范围包含当前数据点。有限宽度 3D 检查点标明只对应空气。
-- 尺寸线使用固定的 4 个几何对象，不因场景／角度变化反复丢弃 GPU 资源。帧统计保留 180 项、历史保留 256 条。
-- 捕获模式停止动画与定时任务；公开阶段／角度 API 在修改状态前拒绝 NaN 和无穷值。
-- 科学验证失败即停止数据生成；新检查点校验参数哈希与完整性，拒绝混入旧参数证据。
-- 完整数值复现先在临时目录运行全部阶段，通过后再写回；普通写入失败回滚既有成果。突然断电或进程强制终止不承诺跨文件事务。
-- 文档修正历史 QA 路径，说明介质 FVM 共享 BEM 的外边界参考电位，限定核查独立性。
+- Dynamic imports on Windows use file URLs, so the raw-JSON and embedded-data checks complete.
+- Leaving Explore restores the camera, phase, material, field cycle, playback and autoplay state; focused controls keep native keys.
+- After a material switch the chart shows the matching curve, the local approximation uses the current permittivity and the y-axis includes the current point. Finite-width 3-D checkpoints are labelled as air only.
+- Dimension lines reuse four fixed geometries instead of reallocating GPU resources. Frame statistics keep 180 entries, history 256.
+- Capture mode stops animation and timers; public phase and angle APIs reject NaN and infinity before changing state.
+- A failed scientific validation stops data generation; new checkpoints verify the parameter hash and completeness and refuse evidence from old parameters.
+- Full numerical reproduction runs every stage in a temporary folder and writes back only after all pass; ordinary write failures roll back. Sudden power loss or forced termination is not covered by a cross-file transaction.
+- Documentation fixes historical QA paths and notes that the dielectric FVM check shares the BEM outer reference potential, which limits its independence.
 
-### 共用构建与发布
+### Shared build and publishing
 
-- 补齐 MIT 原创内容授权和第三方许可；网站、独立 HTML 与分发目录均携带必要通知。
-- 两个项目均提供依赖锁文件，联网 `npm ci` 与离线编译路径清楚区分。
-- 维护中 Python 文本输入／输出明确 UTF-8；许可通知位于 HTML 正文末尾，避免挤出文件头的字符编码声明。
-- 单个根工作流分别构建两套演示，发布一个 `site/`；PR 运行验证而不发布。
-- 原上传基线保持不变，以精确模块哈希记录有意修复；冻结科学输入仍按原文件哈希检查。
-- 预览全部重新渲染；旧交接报告和部署提示归档，当前说明不沿用旧验证结论。
+- MIT licence for original content and third-party notices added; the website, stand-alone HTML and distribution folders carry the required notices.
+- Both projects ship lock files; online `npm ci` and the offline compiler path are clearly separated.
+- Python text I/O is explicitly UTF-8; licence notices sit at the end of the HTML body so the charset declaration stays near the top.
+- One root workflow builds both demos and publishes one `site/`; pull requests verify without publishing.
+- The original upload baselines stay unchanged; intentional fixes are recorded by exact module hashes; frozen scientific inputs are still checked by file hash.
+- All previews were re-rendered; old hand-off reports and deployment prompts were archived and not reused as current verification.
 
-本次没有修改冻结科学参数、预计算科学数据或原始 ZIP，也未创建线上仓库或发布 Pages。
+That pass changed no frozen scientific parameter, precomputed data or original ZIP, and created no online repository or Pages site.
 
-### 精选预览布局
+### Curated preview layout
 
-两个 README 概览改为 2×2，单格由 800×450 增至 1200×675，截图原比例和完整图文保留。ProxiTouch 采用原九宫格逐行阅读序号 3、4、7、9；互电容采用展开电极、理想扇区、介质边缘场和角度模型比较。移除额外文件名标题，保留画面内的场景名。完整图库不删图，布局配置写入 manifest，之后刷新仍保持 2×2。原九宫格归档于各项目 `archive/preview-layout-2026-10-02/`。
+Both README overviews became 2×2 montages with 1200×675 cells, keeping screenshot proportions and the full galleries. The earlier 3×3 montages are archived in each project's `archive/preview-layout-2026-10-02/`.
