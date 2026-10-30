@@ -1,6 +1,6 @@
 # Current release synchronization
 
-The sanitized final upload remains immutable in `reference/final-upload.html`. Its SHA-256 is pinned by `RELEASE_CONTRACT.json`; the historical handoff audit is retained under `archive/prior-github-handoff/docs/`.
+The sanitized final upload remains immutable in `reference/final-upload.html`. Its SHA-256 is pinned by `RELEASE_CONTRACT.json`.
 
 The maintained edition includes intentional English-language, presentation and interaction revisions. The contract pins the immutable reference and the approved normalized hash for every compiled module, with a reason for each changed or new module. Unexpected changes fail `npm test`; the historical reference is not replaced by the redesigned build.
 

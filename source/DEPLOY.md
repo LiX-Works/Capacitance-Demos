@@ -1,7 +1,6 @@
 # Publishing the collection with GitHub Pages
 
-This repository holds one collection page and two demos; it does not need two GitHub repositories. Older deployment prompts are kept in each project's `archive/prior-github-handoff/` and are not used for current deployments.
-
+This repository holds one collection page and two demos; it does not need two GitHub repositories.
 ## What to upload
 
 Keep this folder as `source/` in one repository: `web/`, `scripts/`, `projects/`, documents and licences, next to the root `.github/` and `LICENSE`. Do not upload a delivery ZIP as the website, and do not upload `node_modules`, Python environments or browser caches.

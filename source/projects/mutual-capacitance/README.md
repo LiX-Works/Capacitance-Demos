@@ -47,6 +47,6 @@ Values come from the Python BEM solvers and one parameter file. 2-D results are 
 
 ## Archive and licence
 
-Historical reports and old tests are in `archive/` and `source/legacy-tests/`; the earlier stand-alone deployment hand-off is in `archive/prior-github-handoff/`. Historical conclusions do not certify the current build.
+Historical reports and old tests are in `archive/` and `source/legacy-tests/`. Historical conclusions do not certify the current build.
 
 Original source, text and data are under [MIT](LICENSE); KaTeX and TypeScript keep their own licences, and the stand-alone HTML and the published site carry the required notices. Publishing goes through the [collection workflow](../../../.github/workflows/pages.yml).
