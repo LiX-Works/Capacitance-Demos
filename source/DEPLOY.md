@@ -4,9 +4,9 @@ This repository holds one collection page and two demos; it does not need two Gi
 
 ## What to upload
 
-Put this folder's contents at the root of one repository: source, `web/`, `scripts/`, `projects/`, documents, licences and the root `.github/`. Do not upload a delivery ZIP as the website, and do not upload `node_modules`, Python environments or browser caches.
+Keep this folder as `source/` in one repository: `web/`, `scripts/`, `projects/`, documents and licences, next to the root `.github/` and `LICENSE`. Do not upload a delivery ZIP as the website, and do not upload `node_modules`, Python environments or browser caches.
 
-The root `.gitignore` excludes the rebuildable `site/`, each project's `dist/` and the packaged project entries. They may stay in a local offline package; GitHub Actions regenerates them from source. Keep the scientific data, `reference/` and the historical archives.
+This folder's `.gitignore` excludes the rebuildable `site/`, each project's `dist/` and the packaged project entries. They may stay in a local offline package; GitHub Actions regenerates them from source. Keep the scientific data, `reference/` and the historical archives.
 
 ## Turning on Pages
 

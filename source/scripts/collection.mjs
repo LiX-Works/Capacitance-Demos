@@ -33,7 +33,7 @@ if (mode === 'build') {
   fs.mkdirSync(site, {recursive: true});
   for (const name of projects) fs.cpSync(path.join(root, 'projects', name, 'site'), path.join(site, name), {recursive: true});
   fs.cpSync(path.join(root, 'licenses'), path.join(site, 'licenses'), {recursive: true});
-  fs.copyFileSync(path.join(root, 'LICENSE'), path.join(site, 'LICENSE.txt'));
+  fs.copyFileSync(path.join(root, '..', 'LICENSE'), path.join(site, 'LICENSE.txt'));
   fs.copyFileSync(path.join(root, 'THIRD_PARTY_NOTICES.md'), path.join(site, 'THIRD_PARTY_NOTICES.md'));
   const template = fs.readFileSync(path.join(root, 'web/index.html'), 'utf8');
   const style = fs.readFileSync(path.join(root, 'web/style.css'), 'utf8');
@@ -41,7 +41,7 @@ if (mode === 'build') {
     .replaceAll('{{PROXI}}', `${prefix}proxitouch/`).replaceAll('{{MUTUAL}}', `${prefix}mutual-capacitance/`)
     .replaceAll('{{LICENSE}}', license);
   fs.writeFileSync(path.join(site, 'index.html'), home('./', './LICENSE.txt'));
-  fs.writeFileSync(path.join(root, 'index.html'), home('./projects/', './LICENSE'));
+  fs.writeFileSync(path.join(root, 'index.html'), home('./projects/', '../LICENSE'));
   fs.writeFileSync(path.join(site, '.nojekyll'), '');
   console.log('Built one collection entrance and two standalone demo routes.');
 }

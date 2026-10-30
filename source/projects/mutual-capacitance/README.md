@@ -1,6 +1,6 @@
 # Mutual-Capacitance Lab
 
-Unfold two finite plates from facing to side by side: how much capacitance is left? Parallel-plate theory says none. A boundary-element solution of the real geometry gives 23.37 pF facing and 3.07 pF side by side, so 13% survives as pure fringe coupling. Eight pages; one demo of the [Capacitance Demos collection](../../README.md).
+Unfold two finite plates from facing to side by side: how much capacitance is left? Parallel-plate theory says none. A boundary-element solution of the real geometry gives 23.37 pF facing and 3.07 pF side by side, so 13% survives as pure fringe coupling. Eight pages; one demo of the [Capacitance Demos collection](../../../.github/README.md).
 
 ![Current browser previews](previews/overview.png)
 
@@ -49,4 +49,4 @@ Values come from the Python BEM solvers and one parameter file. 2-D results are 
 
 Historical reports and old tests are in `archive/` and `source/legacy-tests/`; the earlier stand-alone deployment hand-off is in `archive/prior-github-handoff/`. Historical conclusions do not certify the current build.
 
-Original source, text and data are under [MIT](LICENSE); KaTeX and TypeScript keep their own licences, and the stand-alone HTML and the published site carry the required notices. Publishing goes through the [collection workflow](../../.github/workflows/pages.yml).
+Original source, text and data are under [MIT](LICENSE); KaTeX and TypeScript keep their own licences, and the stand-alone HTML and the published site carry the required notices. Publishing goes through the [collection workflow](../../../.github/workflows/pages.yml).
